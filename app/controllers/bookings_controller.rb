@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [ :edit, :destroy]
+  before_action :find_booking, only: [:show :edit, :update, :destroy]
+
+  def index
+    @bookings = Booking.all
+  end
 
   def new
     @booking = Booking.new
@@ -10,16 +14,26 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.boat = @boat
     if @booking.save
-      redirect_to user_path(@user)
+      redirect_to user_booking_path(@booking.user)
     else
       render :new
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    @booking.update(booking_params)
+    redirect_to user_booking_path(@booking.user)
+  end
+
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to booking_path(@booking.user)
+    redirect_to user_booking_path(@booking.user)
   end
 
   private
@@ -29,7 +43,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:content)
+    params.require(:booking).permit(:checkin, :checkout, :booking_price)
   end
 
 end
