@@ -3,12 +3,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :users, only: %i[show] do
-    resources :boats, only: %i[index show new create edit update]
-    resources :bookings, only: %i[index show new create edit update]
+  resources :users, only: %i[show edit update]
+
+  resources :boats do
+    resources :bookings, only: %i[new create]
   end
 
-  resources :boats, only: %i[destroy]
-  resources :bookings, only: %i[destroy]
-
+  resources :bookings, only: %i[index show edit update]
 end
