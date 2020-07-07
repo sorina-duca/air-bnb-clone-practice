@@ -1,5 +1,6 @@
 class Boat < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
   validates :name, presence: { message: 'You must pick the name of your boat' }
   validates :description, presence: true, length: { minimum: 100 }
   validates :capacity, presence: true, inclusion: { in: [2, 4, 6],
