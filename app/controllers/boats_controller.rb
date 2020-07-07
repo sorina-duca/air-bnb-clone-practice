@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [ :edit, :update, :show, :destroy ]
-
+  skip_before_action :authenticate_user!, only: [:index]
   def index
     @boats = Boat.all
   end
@@ -15,11 +15,11 @@ class BoatsController < ApplicationController
   def create
     @boat = Boat.new(boat_params)
     @boat.user = current_user
-    @boat.save
     if @boat.save
       redirect_to boat_path(@boat)
     else
       render :new
+      raise
     end
   end
 
