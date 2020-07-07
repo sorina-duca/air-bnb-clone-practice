@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show :edit, :update, :destroy]
+  before_action :set_boat, only: [:new :create ]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @bookings = Booking.all
@@ -11,10 +13,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = params[:user_id]
-    @booking.boat = @boat
+    @booking.user = current_user.id
+    @booking.boat = params[:boat_id]
     if @booking.save
-      redirect_to user_bookings_path(@user)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
@@ -46,4 +48,7 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:checkin, :checkout, :status, :booking_price)
   end
 
+  def set_boat
+    @boat = Boat.find(params[:boat_id])
+  end
 end
