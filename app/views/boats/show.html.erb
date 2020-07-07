@@ -1,5 +1,6 @@
 <div class="container ml-3">
   <h1><%= @boat.name %></h1>
+  <%= cl_image_tag @boat.photo.key, height: 300, width: 300, crop: :fill %>
   <p><%= link_to 'Edit', edit_boat_path(@boat) %></p>
   <p><%= link_to 'Delete boat', boat_path(@boat), method: :delete %></p>
 </div>
