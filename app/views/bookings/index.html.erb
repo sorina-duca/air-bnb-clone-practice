@@ -1,0 +1,9 @@
+<h2>Here are your bookings</h2>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.status %></li>
+    <li><%= booking.boat %></li>
+    <li><%= booking.checkin %> -- <%= booking.checkout %> </li>
+    <li><%= booking.booking_price %></li>
+  <% end %>
+</ul>

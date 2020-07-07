@@ -1,0 +1,10 @@
+<%= simple_form_for @boat do |f|%>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :capacity %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :type %>
+  <!-- we must make the fields allow selection Select2 -->
+  <%= f.submit %>
+  <% end %>

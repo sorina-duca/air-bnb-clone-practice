@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :bio, presence: true
   has_many :boats, dependent: :destroy
   has_many :bookings
+  has_one_attached :photo
 end
