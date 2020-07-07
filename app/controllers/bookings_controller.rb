@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:show :edit, :update, :destroy]
+  before_action :set_booking, only: [:show :edit, :update, :destroy]
 
   def index
     @bookings = Booking.all
@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = @user
+    @booking.user = params[:user_id]
     @booking.boat = @boat
     if @booking.save
       redirect_to user_bookings_path(@user)
@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def find_booking
+  def set_booking
     @booking = Booking.find(params[:booking_id])
   end
 
