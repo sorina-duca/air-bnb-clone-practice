@@ -9,5 +9,5 @@ class Boat < ApplicationRecord
   #                                              message: "Please choose the capacity" }
   # validates :location, presence: true
   # validates :price, presence: true, numericality: { message: 'must be a number' }
-  # validates :type, presence: true, inclusion: { in: ['motorboat', 'sailboat'] }
+  # validates :category, presence: true, inclusion: { in: ['motorboat', 'sailboat'] }
 end
