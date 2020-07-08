@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show :edit, :update]
-  before_action :set_boat, only: [:new :create ]
+  before_action :set_booking, only: [:show, :edit, :update]
+  before_action :set_boat, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
