@@ -1,0 +1,5 @@
+<h2>This is the profile of <%= @user.name %></h2>
+
+<p><%= @user.name %> has <%= @user.boats.count %> boats</p>
+
+<%= link_to 'Edit Profile', edit_profile_path(current_user.id) %>
