@@ -1,20 +1,24 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [ :edit, :update, :show, :destroy ]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @boats = Boat.all
+    @boats = policy_scope(Boat).order(name: :asc)
   end
 
   def show
+    authorize @boat
   end
 
   def new
     @boat = Boat.new
+    authorize @boat
   end
 
   def create
     @boat = Boat.new(boat_params)
     @boat.user = current_user
+    authorize @boat
     if @boat.save
       redirect_to boat_path(@boat)
     else
@@ -23,16 +27,19 @@ class BoatsController < ApplicationController
   end
 
   def edit
+    authorize @boat
   end
 
   def update
     @boat.update(boat_params)
+    authorize @boat
     redirect_to boat_path(@boat)
   end
 
   def destroy
     @boat.destroy
-    # to change when we create a user page
+    authorize @boat
+    # to change when we create a user profile page
     redirect_to root_path
   end
 
