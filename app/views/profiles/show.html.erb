@@ -1,5 +1,13 @@
 <h2>This is the profile of <%= @user.name %></h2>
 
 <p><%= @user.name %> has <%= @user.boats.count %> boats</p>
+<hr>
+<p>Bio:</p>
+<%= @user.bio %>
+<hr>
+<p>E-mail</p>
+<%= @user.email %>
+<hr>
 
 <%= link_to 'Edit Profile', edit_profile_path(current_user.id) %>
+
