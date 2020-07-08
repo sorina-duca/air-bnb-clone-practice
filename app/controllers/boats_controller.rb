@@ -1,8 +1,9 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [ :edit, :update, :show, :destroy ]
   skip_before_action :authenticate_user!, only: [:index]
+
   def index
-    @boats = Boat.all
+    @boats = policy_scope(Boat).order(name: :asc)
   end
 
   def show
