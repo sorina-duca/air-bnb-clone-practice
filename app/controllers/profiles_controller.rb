@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   def update
     authorize @user
     if @user.update(profile_user_params)
-      redirect_to profile_path(@user)
+      redirect_to profile_path(current_user.id)
     else
       render :new
     end
