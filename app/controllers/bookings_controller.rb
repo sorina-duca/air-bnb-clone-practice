@@ -1,22 +1,27 @@
 class BookingsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_booking, only: %i[show edit update]
-  before_action :set_boat, only: %i[new create]
-  # before_action :authenticate_user!, only: %i[new create]
+
+  before_action :find_booking, only: [:show, :edit, :update]
+  before_action :find_boat, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @bookings = current_user.bookings
-  end
+    @bookings = policy_scope(Booking).order(checkin: :asc)
+
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    # authorize @booking
     @booking.user = current_user
     @booking.boat = Boat.find(params[:boat_id])
+    @booking.status = "pending"
+    authorize @booking
+
+
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -25,20 +30,32 @@ class BookingsController < ApplicationController
   end
 
   def show
-    # authorize @booking
+    authorize @booking
   end
 
   def edit
+    authorize @booking
   end
 
   def update
     @booking.update(booking_params)
-    redirect_to user_booking_path(@booking.user)
+    redirect_to booking_path(@booking)
+    authorize @booking
   end
+
+  def cancel
+    @booking.status = "cancelled"
+    authorize @booking
+  end
+
+  # def approve
+  #   @booking.status = "approved"
+  #   authorize @booking
+  # end
 
   private
 
-  def set_booking
+  def find_booking
     @booking = Booking.find(params[:id])
   end
 
@@ -46,7 +63,7 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:checkin, :checkout, :status, :booking_price)
   end
 
-  def set_boat
+  def find_boat
     @boat = Boat.find(params[:boat_id])
   end
 end
