@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.boat = Boat.find(params[:boat_id])
+    @booking.status = "pending"
     authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
@@ -37,6 +38,16 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     redirect_to booking_path(@booking)
   end
+
+  def cancel
+    @booking.status = "cancelled"
+    authorize @booking
+  end
+
+  # def approve
+  #   @booking.status = "approved"
+  #   authorize @booking
+  # end
 
   private
 
