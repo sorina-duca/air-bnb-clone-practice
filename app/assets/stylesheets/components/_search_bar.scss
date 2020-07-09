@@ -1,0 +1,19 @@
+.search-bar {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 150px;
+  .input{
+    width: 500px;
+  }
+
+  input {
+    border-radius: 12px;
+    padding: 30px;
+  }
+  .btn-primary {
+    margin-left: 12px;
+    padding: 18px 36px;
+  }
+}

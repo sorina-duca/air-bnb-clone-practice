@@ -3,7 +3,16 @@ class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @boats = policy_scope(Boat).order(name: :asc)
+    if params[:query].present?
+      @boats = policy_scope(Boat).where(location: params[:query])
+    else
+      @boats = policy_scope(Boat).order(name: :asc)
+    end
+  end
+
+  def search
+
+    raise
   end
 
   def show

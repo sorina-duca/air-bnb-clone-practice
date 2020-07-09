@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   before_action :find_booking, only: [:show, :edit, :update]
   before_action :find_boat, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create]
@@ -6,7 +7,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking).order(checkin: :asc)
-  end
+
 
   def new
     @booking = Booking.new
@@ -19,6 +20,8 @@ class BookingsController < ApplicationController
     @booking.boat = Boat.find(params[:boat_id])
     @booking.status = "pending"
     authorize @booking
+
+
     if @booking.save
       redirect_to booking_path(@booking)
     else

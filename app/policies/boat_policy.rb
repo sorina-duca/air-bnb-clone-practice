@@ -5,6 +5,10 @@ class BoatPolicy < ApplicationPolicy
     end
   end
 
+  def search?
+    true
+  end
+
   def show?
     true
   end
@@ -19,5 +23,9 @@ class BoatPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
+  end
+
+  def my_boats?
+    true
   end
 end
