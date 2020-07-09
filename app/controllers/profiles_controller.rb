@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :find_profile_user, only: %i[update edit show]
+  before_action :find_profile_user, only: %i[show edit update]
 
   def show; end
 
@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
 
   def find_profile_user
     @user = User.find(current_user.id)
+    authorize @user
   end
 
   def profile_user_params
