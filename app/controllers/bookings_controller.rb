@@ -38,21 +38,10 @@ class BookingsController < ApplicationController
   end
 
   def update
+    authorize @booking
     @booking.update(booking_params)
     redirect_to booking_path(@booking)
-    authorize @booking
   end
-
-  def cancel
-    @booking.status = "cancelled"
-    update
-    authorize @booking
-  end
-
-  # def approve
-  #   @booking.status = "approved"
-  #   authorize @booking
-  # end
 
   private
 
