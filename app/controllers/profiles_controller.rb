@@ -1,6 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :find_profile_user, only: %i[show edit update]
 
+  def my_boats
+    @boats = Boat.where(user: current_user.id)
+    authorize @boats
+  end
+
   def show; end
 
   def edit; end

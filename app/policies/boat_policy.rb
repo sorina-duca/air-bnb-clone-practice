@@ -20,4 +20,8 @@ class BoatPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def my_boats?
+    true
+  end
 end

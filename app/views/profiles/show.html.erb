@@ -1,7 +1,7 @@
 <h2>This is the profile of <%= @user.name %></h2>
 
 <p><%= @user.name %> has <%= @user.boats.count %> boats</p>
-<%= link_to 'See Boats', boats_path %>
+<%= link_to 'See Boats', my_boats_profiles_path %>
 <hr>
 <p><%= @user.name %> has <%= @user.bookings.count %> Bookings</p>
 <%= link_to 'See Bookings', bookings_path %>
