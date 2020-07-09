@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.boat = Boat.find(params[:boat_id])
     @booking.status = "pending"
-    @booking.price = @boat.price * (@booking.checkout - @booking.checkin)
+    @booking.booking_price = @booking.boat.price * (@booking.checkout - @booking.checkin).to_i / (24 * 60 * 60)
     authorize @booking
 
     if @booking.save
