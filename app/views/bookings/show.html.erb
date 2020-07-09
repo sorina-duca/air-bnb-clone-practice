@@ -11,7 +11,4 @@
   <% if policy(@booking).edit? %>
    <p><%= link_to "Update", edit_booking_path(@booking) %></p>
   <% end %>
-  <% if policy(@booking).cancel? %>
-    <p><%= link_to 'Cancel', booking_path(@booking), method: :cancel %></p>
-  <% end %>
 </div>
