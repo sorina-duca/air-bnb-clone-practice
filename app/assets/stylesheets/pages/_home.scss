@@ -2,10 +2,15 @@
 body {
   background-color: #FFF;
 }
-.home-page-background img{
-  height: 100%;
-  width: 100%;
+
+.home-container {
+  background: image-url('homepage-01') no-repeat center;
+  background-size: cover;
+  max-width: 100%;
+  height: 100vh;
   position: relative;
   bottom: 75px;
-  z-index: -5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
