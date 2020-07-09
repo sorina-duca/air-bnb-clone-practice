@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   before_action :find_profile_user, only: %i[show edit update]
-  # before_action :find_user_boat, only: %i[index]
 
   def my_boats
     @boats = Boat.where(user: current_user.id)
@@ -25,11 +24,6 @@ class ProfilesController < ApplicationController
   def find_profile_user
     @user = User.find(current_user.id)
     authorize @user
-  end
-
-  def finde_user_boat
-    @boat = Boat.find(current_user.id)
-    authorize @boat
   end
 
   def profile_user_params
