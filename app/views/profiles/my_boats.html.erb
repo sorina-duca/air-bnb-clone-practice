@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Here I should see my boats Only:</h1>
+  <% @boats.each do |boat| %>
+    <h2><%= link_to boat.name, boat_path(boat) %></h2>
+  <% end %>
+</div>
+

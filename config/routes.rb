@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # resources :users, only: %i[show profile update]
-  resources :profiles, only: %i[update show edit]
+  resources :profiles, only: %i[index update show edit] do
+    collection do
+      get :my_boats
+    end
+  end
 
   resources :boats do
     resources :bookings, only: %i[new create]
