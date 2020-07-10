@@ -36,7 +36,7 @@ files = [
   boat = Boat.create(
     name: Faker::Name.female_first_name,
     location: ['Berlin', 'Hamburg', 'Oslo', 'Amsterdam', 'Copenhagen'].sample,
-    capacity: rand(2..6),
+    capacity: [2, 4, 6].sample,
     price: rand(70..1000),
     category: ['Sailingboat', 'Motorboat'].sample,
     user_id: User.all.sample.id,
