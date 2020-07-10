@@ -10,11 +10,6 @@ class BoatsController < ApplicationController
     end
   end
 
-  def search
-
-    raise
-  end
-
   def show
     authorize @boat
   end
