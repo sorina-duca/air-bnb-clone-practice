@@ -1,5 +1,4 @@
 import flatpickr from 'flatpickr/dist/flatpickr.js';
-import 'flatpickr/dist/flatpickr.min.css';
 
 const dates = document.getElementById('disable-unavailable-dates');
 const unavailable = JSON.parse(dates.dataset.dates);
