@@ -5,6 +5,8 @@ require "open-uri"
     sleep(0.2)
 end
 
+puts " "
+
 puts 'Cleaning up database'
 Boat.destroy_all
 puts 'Database is cleaned'
@@ -13,6 +15,8 @@ puts 'Database is cleaned'
     print "Creating some new nice Boats." +  ("." * (i % 3)) + "  \r"
     sleep(0.2)
 end
+
+puts " "
 
 files = [
   'https://www.bavariayachts.com/fileadmin/_processed_/f/8/csm_bavaria-sy-cline-c42-interior-02_bd508e7f7f.jpg',
@@ -32,10 +36,32 @@ files = [
   'https://media.tacdn.com/media/attractions-splice-spp-674x446/07/3b/0e/20.jpg',
 ]
 
+locations = [
+  'Am Riegelberg, 14542 Werder (Havel)',
+  'Caputh, 14548 Schwielowsee',
+  'Tornowstraße 15-3, 14473 Potsdam',
+  'Potsdam-West, 14471 Potsdam',
+  'Schwanenwerder, 14129 Berlin',
+  'Str. 548 6, 12589 Berlin',
+  'Bachstelzenweg 469-461, 12589 Berlin',
+  'Hessenwinkel, 12589 Berlin',
+  'Karpfenteich,14059 Berlin',
+  'Spandauer Havelpromenade, 13599 Berlin',
+  'Haselhorst, 13599 Berlin',
+  'Eiswerder, 13585 Berlin',
+  'Eiswerderufer 1, 13585 Berlin',
+  'Pionierinsel, 13585 Berlin',
+  'Floating University Berlin',
+  'Hauptstraße 13, 10317 Berlin',
+  'Friedhof der Kirchengemeinde Zwingli-Stralau, 10245 Berlin',
+  'Berliner Innenstadt, 12045 Berlin',
+  'Frieda-Arnheim-Promenade 36, 13585 Berlin ',
+  'Mahnkopfweg 14-7, 13595 Berlin ',
+]
 20.times do
   boat = Boat.create(
     name: Faker::Name.female_first_name,
-    location: ['Berlin', 'Hamburg', 'Oslo', 'Amsterdam', 'Copenhagen'].sample,
+    location: locations.sample,
     capacity: [2, 4, 6].sample,
     price: rand(70..1000),
     category: ['Sailingboat', 'Motorboat'].sample,
