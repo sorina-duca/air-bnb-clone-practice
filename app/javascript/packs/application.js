@@ -31,9 +31,10 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import "../custom/datepickr";
 
+import { initMapbox } from './mapbox';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
+  initMapbox();
   // initSelect2();
 
 });
