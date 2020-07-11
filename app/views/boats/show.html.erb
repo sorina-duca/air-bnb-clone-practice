@@ -11,4 +11,8 @@
     <p><%= link_to 'Delete', boat_path(@boat), method: :delete %></p>
   <% end %>
   <%= link_to "Book this boat", new_boat_booking_path(@boat), class: "btn btn-primary" %>
+  <div id="map-show"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'></div>
 </div>
