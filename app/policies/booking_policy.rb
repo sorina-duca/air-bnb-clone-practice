@@ -5,6 +5,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def index
+    show
+  end
+
   def show?
     true
   end
@@ -14,10 +18,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
-  end
-
-  def cancel?
     record.user == user
   end
 

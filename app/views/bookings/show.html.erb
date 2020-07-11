@@ -5,16 +5,13 @@
     <li>Your booking is: <%= @booking.status %></li>
     <li>Check in: <%= @booking.checkin.strftime("%m/%d/%Y at %I:%M%p") %></li>
     <li>Check out: <%= @booking.checkout.strftime("%m/%d/%Y at %I:%M%p") %></li>
-    <li><%= @booking.booking_price %></li>
+    <li><%= @booking.booking_price %> EUR</li>
   </ul>
 
   <% if policy(@booking).edit? %>
    <p><%= link_to "Update", edit_booking_path(@booking) %></p>
   <% end %>
-
-  <% if policy(@booking).cancel? %>
-    <p><%= link_to 'Cancel', booking_path(@booking), method: :cancel %></p>
-  <% end %>
-
+  
+  <p><%= link_to 'Cancel', booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></p>
 
 </div>
