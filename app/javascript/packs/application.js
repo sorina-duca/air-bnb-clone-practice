@@ -31,9 +31,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import "../custom/datepickr";
 
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
+  initUpdateNavbarOnScroll();
   // Call your functions here, e.g:
   // initSelect2();
 
 });
+
+
