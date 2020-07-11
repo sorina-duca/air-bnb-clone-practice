@@ -4,7 +4,8 @@ class BoatsController < ApplicationController
 
   def index
     if params[:query].present?
-      @boats = policy_scope(Boat).where(location: params[:query])
+      @location = params[:query]
+      @boats = policy_scope(Boat).where('location ILIKE?', "%#{@locaiton}%")
     else
       @boats = policy_scope(Boat).order(name: :asc)
     end
