@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[index update show edit] do
     collection do
       get :my_boats
+      get :my_requests
     end
   end
 
   resources :boats do
-    resources :bookings, only: %i[index new create show]
+      resources :bookings, only: %i[index new create show]
   end
 
   resources :bookings, only: %i[index show edit update]
