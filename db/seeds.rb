@@ -8,6 +8,7 @@ end
 puts " "
 
 puts 'Cleaning up database'
+Booking.destroy_all
 Boat.destroy_all
 puts 'Database is cleaned'
 
