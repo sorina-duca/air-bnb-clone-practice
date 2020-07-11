@@ -9,6 +9,11 @@ const initMapbox = () => {
       container: 'map-show',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+
+    const markers = JSON.parse(mapElement.dataset.markers);
+    new mapboxgl.Marker()
+      .setLngLat([ markers.lng, markers.lat ])
+      .addTo(map);
   }
 };
 
