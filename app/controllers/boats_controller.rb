@@ -5,9 +5,15 @@ class BoatsController < ApplicationController
   def index
     if params[:query].present?
       @location = params[:query]
-      @boats = policy_scope(Boat).where('location ILIKE?', "%#{@locaiton}%")
+      @boats = policy_scope(Boat.geocoded).where('location ILIKE?', "%#{@location}%")
     else
-      @boats = policy_scope(Boat).order(name: :asc)
+      @boats = policy_scope(Boat.geocoded).order(name: :asc)
+    end
+    @markers = @boats.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
     end
   end
 
