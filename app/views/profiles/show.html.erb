@@ -6,6 +6,15 @@
 <p><%= @user.name %> has <%= @user.bookings.count %> Bookings</p>
 <%= link_to 'See Bookings', bookings_path %>
 <hr>
+
+<% bookings_count = [] %>
+<% @user.boats.each do |boat| %>
+  <% bookings_count << boat.bookings.count %>
+<% end %>
+<p>You have <%= bookings_count.sum %> requests</p>
+<%= link_to 'See Requests', boat_bookings_path(@boat) %>
+
+<hr>
 <p>Bio:</p>
 <%= @user.bio %>
 <hr>
