@@ -3,6 +3,7 @@
   <%= cl_image_tag @booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
   <ul>
     <li>Your booking is: <%= @booking.status %></li>
+    <li>The boat owner is: <%= @booking.boat.user.name %></li>
     <li>Check in: <%= @booking.checkin.strftime("%m/%d/%Y at %I:%M%p") %></li>
     <li>Check out: <%= @booking.checkout.strftime("%m/%d/%Y at %I:%M%p") %></li>
     <li><%= @booking.booking_price %> EUR</li>
@@ -11,7 +12,7 @@
   <% if policy(@booking).edit? %>
    <p><%= link_to "Update", edit_booking_path(@booking) %></p>
   <% end %>
-  
+
   <p><%= link_to 'Cancel', booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></p>
 
 </div>
