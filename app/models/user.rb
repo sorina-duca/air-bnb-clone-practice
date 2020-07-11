@@ -6,6 +6,6 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :bio, presence: true
   has_many :boats, dependent: :destroy
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_one_attached :photo
 end
