@@ -9,9 +9,11 @@
 
 <ul>
   <% @user.boats.each do |boat| %>
-  <h4><%= boat.name %> : <%= boat.bookings.count %> requests</h4>
-    <% boat.bookings.each do |request| %>
-    <li>A request from <%= request.user.name %> is <%= request.status %></li>
+    <% if boat.bookings.count.positive? %>
+      <h4><%= boat.name %> : <%= boat.bookings.count %> requests</h4>
+        <% boat.bookings.each do |request| %>
+          <li>A request from <%= request.user.name %> is <%= request.status %></li>
+        <% end %>
     <% end %>
   <% end %>
 </ul>
