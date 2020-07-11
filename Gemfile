@@ -36,6 +36,9 @@ gem 'simple_form'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 
+# geocoding
+gem 'geocoder'
+
   # authorization
 
 gem 'pundit'
