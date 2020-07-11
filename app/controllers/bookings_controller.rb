@@ -12,6 +12,10 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     authorize @booking
+    @unavailable_dates = Booking.where(boat_id: @boat.id).map do |booking|
+      { from: booking.checkin, to: booking.checkout }
+    end
+    # when we have a method for accepting a booking, we should change so that only accepted booking dates are disabled
   end
 
   def create
