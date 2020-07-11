@@ -1,6 +1,11 @@
 <div class="container">
   <h2>Sail away with one of the boats</h2>
-  <% @boats.each do |boat| %>
-    <h2><%= link_to boat.name, boat_path(boat) %></h2>
-  <% end %>
+  <div class="grid-boats">
+    <% @boats.each do |boat| %>
+      <div>
+        <%= cl_image_tag boat.photo.key, height: 300, width: 300, crop: :fill %>
+        <h2><%= link_to boat.name, boat_path(boat) %></h2>
+      </div>
+    <% end %>
+  </div>
 </div>
