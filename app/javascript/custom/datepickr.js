@@ -1,6 +1,7 @@
 import flatpickr from 'flatpickr/dist/flatpickr.js';
 
-const dates = document.getElementById('disable-unavailable-dates');
+const initDatepicker = () => {
+  const dates = document.getElementById('disable-unavailable-dates');
 let unavailable = [];
 if (dates) {
   unavailable = JSON.parse(dates.dataset.dates);
@@ -13,4 +14,6 @@ flatpickr('.datepicker', {
     disable: unavailable,
     minDate: "today"
 });
+}
 
+export {initDatepicker}
