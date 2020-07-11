@@ -6,7 +6,14 @@ class ProfilesController < ApplicationController
     authorize @boats
   end
 
-  def show; end
+  def index
+    @boats = Boat.find_by(user: current_user.id)
+    @booking = @boats.booking
+  end
+
+  def show
+    @boat = Boat.find_by(user: current_user.id)
+  end
 
   def edit; end
 

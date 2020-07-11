@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :boats do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[index new create show]
   end
 
   resources :bookings, only: %i[index show edit update]
