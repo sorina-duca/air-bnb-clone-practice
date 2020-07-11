@@ -10,4 +10,5 @@
   <% if policy(@boat).destroy? %>
     <p><%= link_to 'Delete', boat_path(@boat), method: :delete %></p>
   <% end %>
+  <%= link_to "Book this boat", new_boat_booking_path(@boat), class: "btn btn-primary" %>
 </div>
