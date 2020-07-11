@@ -1,5 +1,5 @@
-<h2>Here are your bookings</h2>
-<ul>
+<div class="container">
+  <h2>Here are your bookings</h2>
   <% @bookings.each do |booking| %>
     <% if booking.status == "cancelled" %>
     <!-- We can differentate canceled booking later with CSS or something -->
@@ -8,7 +8,6 @@
     <li><%= cl_image_tag booking.boat.photo.key, height: 200, width: 200, crop: :fill %></li>
     <li>Your booking is: <%= booking.status %></li>
     <li><%= booking.checkin.strftime("%m/%d/%Y at %I:%M%p") %> --- <%= booking.checkout.strftime("%m/%d/%Y at %I:%M%p") %> </li>
-    <li><%= booking.booking_price %> EUR</li>
+    <li><%= booking.booking_price %> EUR</li>  
   <% end %>
-  <% end %>
-</ul>
+</div>
