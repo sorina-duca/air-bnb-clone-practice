@@ -1,23 +1,15 @@
 <h2>Here are all requests of <%= @user.name %></h2>
 
-<% bookings_count = [] %>
-<% @user.boats.each do |boat| %>
-  <% bookings_count << boat.bookings.count %>
-<% end %>
-<p>You have <%= bookings_count.sum %> requests</p>
-
+<% my_count = @user.boats.map { |boat| boat.bookings.count } %>
+<p>You have <%= my_count.sum %> requests</p>
 
 <ul>
   <% @user.boats.each do |boat| %>
     <% if boat.bookings.count.positive? %>
-      <h4><%= boat.name %> : <%= boat.bookings.count %> requests</h4>
-        <% boat.bookings.each do |request| %>
-          <li>A request from <%= request.user.name %> is <%= request.status %></li>
-        <% end %>
+      <h4><%= link_to boat.name,  boat_bookings_path(boat) %> : <%= boat.bookings.count %> requests</h4>
     <% end %>
   <% end %>
 </ul>
-
 
 <p><%= link_to 'Back to my profiles', profile_path(@user) %></p>
 
