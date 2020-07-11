@@ -8,6 +8,7 @@ const unavailable = JSON.parse(dates.dataset.dates);
 flatpickr('.datepicker', {
   altInput: true,
     dateFormat: "Y-m-d",
-    disable: unavailable
+    disable: unavailable,
+    minDate: "today"
 });
 
