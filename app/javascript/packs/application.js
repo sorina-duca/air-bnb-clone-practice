@@ -31,10 +31,16 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import "../custom/datepickr";
 
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initMapbox } from './mapbox';
 
 document.addEventListener('turbolinks:load', () => {
+  initUpdateNavbarOnScroll();
   initMapbox();
+  // Call your functions here, e.g:
+
   // initSelect2();
 
 });
+
+
