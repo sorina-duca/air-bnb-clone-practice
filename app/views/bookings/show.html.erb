@@ -4,8 +4,8 @@
   <ul>
     <li>Your booking is: <%= @booking.status %></li>
     <li>The boat owner is: <%= @booking.boat.user.name %></li>
-    <li>Check in: <%= @booking.checkin.strftime("%m/%d/%Y") %></li>
-    <li>Check out: <%= @booking.checkout.strftime("%m/%d/%Y") %></li>
+    <li>Check in: <%= @booking.checkin.strftime("%d %b") %></li>
+    <li>Check out: <%= @booking.checkout.strftime("%d %b") %></li>
     <li><%= @booking.booking_price %> EUR</li>
   </ul>
 

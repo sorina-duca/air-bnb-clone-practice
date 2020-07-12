@@ -6,7 +6,7 @@
         <%= cl_image_tag booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
         <h2><%= link_to booking.boat.name, booking_path(booking) %></h2>
         <li>Your booking is: <strong><%= booking.status %></strong></li>
-        <li>From <strong><%= booking.checkin.strftime("%m/%d/%Y") %></strong> -- To <strong><%= booking.checkout.strftime("%m/%d/%Y") %></strong> </li>
+        <li>From <strong><%= booking.checkin.strftime("%d %b") %></strong> -- To <strong><%= booking.checkout.strftime("%d %b") %></strong> </li>
         <li>Total price : <strong><%= booking.booking_price %></strong> EUR</li>
       </div>
     <% end %>
