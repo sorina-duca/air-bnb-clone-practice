@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   before_action :find_booking, only: [:show, :edit, :update]
-  before_action :find_boat, only: [:new, :create, :edit]
+  before_action :find_boat, only: [:new, :create, :show, :edit]
   before_action :authenticate_user!, only: [:new, :create]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
