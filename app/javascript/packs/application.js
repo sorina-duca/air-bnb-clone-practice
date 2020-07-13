@@ -33,11 +33,13 @@ import { initDatepicker } from '../custom/datepickr';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initMapbox } from './mapbox';
+import {initMapIndex} from './mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initMapbox();
   initDatepicker();
+  initMapIndex();
   // Call your functions here, e.g:
 
   // initSelect2();

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   before_action :find_booking, only: [:show, :edit, :update]
-  before_action :find_boat, only: [:new, :create]
+  before_action :find_boat, only: [:new, :create, :show, :edit]
   before_action :authenticate_user!, only: [:new, :create]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -21,13 +21,13 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.boat = Boat.find(params[:boat_id])
+    @booking.boat = @boat
     @booking.status = "pending"
-    @booking.booking_price = @booking.boat.price * (@booking.checkout - @booking.checkin).to_i / (24 * 60 * 60)
+    @booking.booking_price = @boat.price * (@booking.checkout - @booking.checkin).to_i / (24 * 60 * 60)
     authorize @booking
 
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to boat_booking_path(@boat,@booking)
     else
       render :new
     end
@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
   def update
     authorize @booking
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    redirect_to boat_booking_path(@booking.boat)
   end
 
   private
