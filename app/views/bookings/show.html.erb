@@ -4,15 +4,18 @@
   <ul>
     <li>Your booking is: <%= @booking.status %></li>
     <li>The boat owner is: <%= @booking.boat.user.name %></li>
-    <li>Check in: <%= @booking.checkin.strftime("%m/%d/%Y at %I:%M%p") %></li>
-    <li>Check out: <%= @booking.checkout.strftime("%m/%d/%Y at %I:%M%p") %></li>
+    <li>Check in: <%= @booking.checkin.strftime("%d %b") %></li>
+    <li>Check out: <%= @booking.checkout.strftime("%d %b") %></li>
     <li><%= @booking.booking_price %> EUR</li>
   </ul>
 
+<% unless @booking.status == "cancelled" %>
   <% if policy(@booking).edit? %>
-   <p><%= link_to "Update", edit_boat_booking_path(@boat) %></p>
+   <button type="button" class="btn btn-link"><%= link_to "Update", edit_boat_booking_path(@boat) %></button>
   <% end %>
 
-  <p><%= link_to 'Cancel', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></p>
+  <button type="button" class="btn btn-link"><%= link_to 'Cancel the booking', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
+<% end %>
+  <p><%= link_to 'Back to all bookings', bookings_path %></p>
 
 </div>
