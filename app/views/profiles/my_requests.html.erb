@@ -2,7 +2,7 @@
   <div class="row">
 
     <div>
-      <h2>Requests <%= @user.name %></h2>
+      <h2>Requests</h2>
       <% my_count = @user.boats.map { |boat| boat.bookings.count } %>
       <p>You have <%= my_count.sum %> requests</p>
     </div>
@@ -19,16 +19,20 @@
 
 <% @user.boats.each do |boat| %>
   <% if boat.bookings.count.positive? %>
-    <div class="card-product mb-3">
-      <%= cl_image_tag boat.photo.key%>
-      <div class="card-product-infos">
-        <h4><%= link_to boat.name, boat_path(boat) %></h4>
-        <p>From <strong>checkin to checkout</strong></p>
-        <p>by Sam</p>
-        <button type="button" class="btn btn-primary">Accept</button>
-        <button type="button" class="btn btn-secondary">Reject</button>
-      </div>
-    </div>
+    <% boat.bookings.each do |booking| %>
+
+        <div class="card-product mb-3">
+          <%= cl_image_tag boat.photo.key%>
+          <div class="card-product-infos">
+            <h4><%= link_to boat.name, boat_path(boat) %> <%= booking.status %></h4>
+            <p>From <strong><%= booking.checkin.strftime("%d %b") %></strong> to <strong><%= booking.checkout.strftime("%d %b") %></strong></p>
+            <p>by <%= User.find_by(id: booking.user_id).name %></p>
+            <button type="button" class="btn btn-primary"><%= link_to 'Accept' %></button>
+            <button type="button" class="btn btn-secondary"><%= link_to 'Reject'%></button>
+          </div>
+        </div>
+
+    <% end %>
   <% end %>
 <% end %>
 

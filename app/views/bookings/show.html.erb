@@ -10,9 +10,9 @@
   </ul>
 
   <% if policy(@booking).edit? %>
-   <p><%= link_to "Update", edit_booking_path(@booking) %></p>
+   <p><%= link_to "Update", edit_boat_booking_path(@boat) %></p>
   <% end %>
 
-  <p><%= link_to 'Cancel', booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></p>
+  <p><%= link_to 'Cancel', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></p>
 
 </div>
