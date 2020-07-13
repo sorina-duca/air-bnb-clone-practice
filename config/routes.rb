@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # resources :users, only: %i[show profile update]
-  resources :profiles, only: %i[index update show edit] do
+  resources :profiles, only: %i[update show edit] do
     collection do
       get :my_boats
       get :my_requests
@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :boats do
-      resources :bookings, only: %i[index new create show]
+      resources :bookings, only: %i[new create show edit update]
   end
 
-  resources :bookings, only: %i[index show edit update]
+  resources :bookings, only: %i[index]
 end
