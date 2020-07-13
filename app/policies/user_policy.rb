@@ -8,4 +8,9 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def my_requests?
+    true
+  end
+
 end

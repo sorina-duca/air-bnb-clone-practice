@@ -12,7 +12,7 @@
   <% bookings_count << boat.bookings.count %>
 <% end %>
 <p>You have <%= bookings_count.sum %> requests</p>
-<%= link_to 'See Requests', boat_bookings_path(@boat) %>
+<%= link_to 'See Requests', my_requests_profiles_path %>
 
 <hr>
 <p>Bio:</p>
