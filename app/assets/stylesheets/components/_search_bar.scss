@@ -1,11 +1,13 @@
 .search-bar {
   display: flex;
-  display: flex;
   justify-content: center;
   position: relative;
   bottom: 150px;
   .input{
     width: 500px;
+    #capacity{
+      width: 250px;
+    }
   }
 
   input {
