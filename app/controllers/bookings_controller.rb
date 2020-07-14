@@ -23,9 +23,9 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.boat = @boat
     @booking.status = "pending"
+
     @booking.booking_price = @boat.price * (@booking.checkout - @booking.checkin).to_i / (24 * 60 * 60)
     authorize @booking
-
     if @booking.save
       redirect_to boat_booking_path(@boat,@booking)
     else
@@ -60,4 +60,5 @@ class BookingsController < ApplicationController
   def find_boat
     @boat = Boat.find(params[:boat_id])
   end
+
 end
