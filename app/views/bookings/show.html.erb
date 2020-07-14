@@ -11,10 +11,11 @@
 
 <% unless @booking.status == "cancelled" %>
   <% if policy(@booking).edit? %>
-   <button type="button" class="btn btn-link"><%= link_to "Update", edit_booking_path(@booking) %></button>
+   <button type="button" class="btn btn-link"><%= link_to "Update", edit_boat_booking_path(@boat) %></button>
   <% end %>
 
-  <button type="button" class="btn btn-link"><%= link_to 'Cancel the booking', booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
+  <button type="button" class="btn btn-link"><%= link_to 'Cancel the booking', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
 <% end %>
   <p><%= link_to 'Back to all bookings', bookings_path %></p>
+
 </div>
