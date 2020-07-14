@@ -10,7 +10,7 @@
             </div>
           <% else %>
             <div class="message-body-recipient" style="text-align: start;">
-
+              <p><%= message.created_at.strftime(" %l:%M") %></p>
               <%= message.body %>
             </div>
           <% end %>

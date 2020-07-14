@@ -1,11 +1,11 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: :index
-  skip_after_action :verify_policy_scoped, only: :index
+  # skip_before_action :authenticate_user!, only: :index
+  # skip_after_action :verify_policy_scoped, only: :index
 
   def index
-    @users = User.all
-    @conversations = Conversation.all
+    @users = policy_scope(User)
+    @conversations = policy_scope(Conversation)
   end
 
   def create
@@ -21,6 +21,6 @@ class ConversationsController < ApplicationController
   private
 
   def conversation_params
-    params.permit(:sender_id, :recipient_id)
+    params.require(:conversation).permit(:sender_id, :recipient_id)
   end
 end
