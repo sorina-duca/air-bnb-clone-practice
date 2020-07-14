@@ -1,0 +1,30 @@
+<div class="reviews-show-container">
+  <% @boat.reviews.each do |review| %>
+    <span class="review-container">
+      <div class="reviews-left">
+        <div class="review-user-avatar">
+          <%= cl_image_tag review.user.photo.key, height: 120, width: 120, crop: :fill %>
+        </div>
+        <div class="review-user-name">
+          <%= review.user.name %>
+        </div>
+      </div>
+
+      <div class="reviews-right">
+        <div class="title-content">
+          <div class="reviw-rating">
+            <% review.rating.to_i.times do  %>
+              <i class="fas fa-star" style="color: #ffa931"></i>
+            <% end %>
+          </div>
+          <div class="review-content">
+            <%= review.content %>
+          </div>
+        </div>
+        <div class="review-date">
+          <p><%= review.created_at.strftime(" %l:%M - %d.%b.%y") %></p>
+        </div>
+      </div>
+    </span>
+  <% end %>
+</div>
