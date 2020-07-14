@@ -1,14 +1,14 @@
 <div class="container">
   <h2>Here are your bookings</h2>
-    <div class="grid-boats">
-      <% @bookings.each do |booking| %>
-        <div>
-          <%= cl_image_tag booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
-          <h2><%= link_to booking.boat.name, boat_booking_path(booking.boat, booking) %></h2>
-          <li>Your booking is: <strong><%= booking.status %></strong></li>
-          <li>From <strong><%= booking.checkin.strftime("%d %b") %></strong> -- To <strong><%= booking.checkout.strftime("%d %b") %></strong> </li>
-          <li>Total price : <strong><%= booking.booking_price %></strong> EUR</li>
-        </div>
-      <% end %>
+  <div class="grid-boats">
+    <% @bookings.each do |booking| %>
+      <div>
+        <%= cl_image_tag booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
+        <h2><%= link_to booking.boat.name, boat_booking_path(booking.boat, booking) %></h2>
+        <li>Your booking is: <strong><%= booking.status %></strong></li>
+        <li>From <strong><%= booking.checkin.strftime("%d %b") %></strong> -- To <strong><%= booking.checkout.strftime("%d %b") %></strong> </li>
+        <li>Total price : <strong><%= booking.booking_price %></strong> EUR</li>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @boats = Boat.find_by(user: current_user.id)
+    @boats = Boat.where(user: current_user.id)
     @booking = @boats.booking
   end
 
