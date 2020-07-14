@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-sm-5" style="margin: auto;">
+      <%= simple_form_for [@boat, @reviews] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating %>
+        <%= f.submit "Add Review", class: "btn btn-primary" %>
+      <% end %>
+      <button type="button" class="btn btn-link"><%= link_to 'Back', :back %></button>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :boats do
       resources :bookings, only: %i[new create show edit update]
+      resources :reviews, only: %i[new create]
   end
 
   resources :bookings, only: :index
