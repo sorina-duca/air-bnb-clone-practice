@@ -5,10 +5,13 @@ class BoatsController < ApplicationController
   def index
     @location = params[:location]
     @capacity = params[:capacity]
+    @check_in = params[:checkin]
+    @check_out = params[:checkout]
 
     boats_query = policy_scope(Boat.geocoded).order(name: :asc)
     boats_query = boats_query.where('location ILIKE?', "%#{@location}%") if params[:location].present?
     boats_query = boats_query.where(capacity: @capacity) if params[:capacity].present?
+    boats_query = boats_query.select { |boat| boat_available?(@check_in, @check_out, boat) } if params[:checkin].present? && params[:checkout].present?
     @boats = boats_query
 
     @markers = @boats.map do |boat|
@@ -73,13 +76,8 @@ class BoatsController < ApplicationController
   end
 
   def boat_available?(check_in, check_out, boat)
-    # overlaps = boat.bookings.map do |booking|
-    #   check_in < booking.check_out && check_out > booking.check_in
-    # end
-    # overlaps.any?(&:true?) # { |bool| bool.true? }
     boat.bookings.none? do |booking|
-      check_in < booking.check_out && check_out > booking.check_in
+      check_in < booking.checkout && check_out > booking.checkin
     end
   end
-
 end

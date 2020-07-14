@@ -30,6 +30,7 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDatepicker } from '../custom/datepickr';
+import {initDatepickrHome} from '../custom/datepickr';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initMapbox } from './mapbox';
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initDatepicker();
   initMapIndex();
+  initDatepickrHome();
   // Call your functions here, e.g:
 
   // initSelect2();
