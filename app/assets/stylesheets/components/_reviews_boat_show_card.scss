@@ -1,0 +1,28 @@
+.reviews-show-container {
+  margin: 30px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.review-container {
+  box-shadow: 1px 1px 24px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-around;
+  padding: 24px;
+  .reviews-left {
+    margin-right: 8px;
+  }
+  .reviews-right {
+    width: 140px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    p {
+      color: rgba(0,0,0,0.4);
+      margin: 0;
+    }
+  }
+}
