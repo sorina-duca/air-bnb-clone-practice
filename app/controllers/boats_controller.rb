@@ -3,13 +3,14 @@ class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:location].present? && params[:capacity].present?
-      @location = params[:location]
-      @capacity = params[:capacity]
-      @boats = policy_scope(Boat.geocoded).where('location ILIKE?', "%#{@location}%").where(capacity: @capacity)
-    else
-      @boats = policy_scope(Boat.geocoded).order(name: :asc)
-    end
+    @location = params[:location]
+    @capacity = params[:capacity]
+
+    boats_query = policy_scope(Boat.geocoded).order(name: :asc)
+    boats_query = boats_query.where('location ILIKE?', "%#{@location}%") if params[:location].present?
+    boats_query = boats_query.where(capacity: @capacity) if params[:capacity].present?
+    @boats = boats_query
+
     @markers = @boats.map do |boat|
       {
         lat: boat.latitude,
@@ -70,4 +71,15 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:name, :description, :capacity, :location, :price, :category, :photo)
   end
+
+  def boat_available?(check_in, check_out, boat)
+    # overlaps = boat.bookings.map do |booking|
+    #   check_in < booking.check_out && check_out > booking.check_in
+    # end
+    # overlaps.any?(&:true?) # { |bool| bool.true? }
+    boat.bookings.none? do |booking|
+      check_in < booking.check_out && check_out > booking.check_in
+    end
+  end
+
 end
