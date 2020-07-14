@@ -10,6 +10,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.marker {
+  background-image: url('../../imagegs/boat.png');
+  background-size: cover;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 /*Media Queries*/
 
 /*Smallest device*/

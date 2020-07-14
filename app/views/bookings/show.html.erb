@@ -1,21 +1,107 @@
-<div class="container ml-3">
-  <h1><%= @booking.boat.name %></h1>
-  <%= cl_image_tag @booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
-  <ul>
-    <li>Your booking is: <%= @booking.status %></li>
-    <li>The boat owner is: <%= @booking.boat.user.name %></li>
-    <li>Check in: <%= @booking.checkin.strftime("%d %b") %></li>
-    <li>Check out: <%= @booking.checkout.strftime("%d %b") %></li>
-    <li><%= @booking.booking_price %> EUR</li>
-  </ul>
+<div class="container">
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-md-8">
+        <h2><strong>Your sail with <%= @booking.boat.name %></strong></h2>
+          <p><%= @booking.boat.description %></p>
+          <%= cl_image_tag @booking.boat.photo.key, crop: :fill, class: "card-category" %>
+      </div>
+      <div class="col-md-4">
+        <h2><strong></strong></h2>
+        <div id="map-show"
+            style="width: 100%; height: 200px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'></div>
+      </div>
+    </div>
+</div>
 
-<% unless @booking.status == "cancelled" %>
-  <% if policy(@booking).edit? %>
-   <button type="button" class="btn btn-link"><%= link_to "Update", edit_boat_booking_path(@boat) %></button>
+    </div>
+  </div>
+
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-md-8">
+
+          <!-- make a card -->
+          <div class="card p-3">
+            <p class=""><strong>boat</strong></p>
+            <p class=""><small>bat</small></p>
+            <span class="">£5.95</span>
+          </div>
+
+          <div class="card p-3">
+            <p class="booking-boat"><strong><%= @booking.boat.name %></strong></p>
+            <p class=""><small>Tomato, basil, mozzarella</small></p>
+            <span class="">£5.95</span>
+          </div>
+
+          <!-- /menu -->
+        </div>
+
+
+    <ul>
+      <li>Your booking is: <%= @booking.status %></li>
+      <li>The boat owner is: <%= @booking.boat.user.name %></li>
+      <li>Check in: <%= @booking.checkin.strftime("%d %b") %></li>
+      <li>Check out: <%= @booking.checkout.strftime("%d %b") %></li>
+      <li><%= @booking.booking_price %> EUR</li>
+    </ul>
+
+  <% unless @booking.status == "cancelled" %>
+    <% if policy(@booking).edit? %>
+     <button type="button" class="btn btn-link"><%= link_to "Update", edit_boat_booking_path(@boat) %></button>
+    <% end %>
+
+    <button type="button" class="btn btn-link"><%= link_to 'Cancel the booking', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
   <% end %>
+    <p><%= link_to 'Back to all bookings', bookings_path %></p>
+  </div>
 
-  <button type="button" class="btn btn-link"><%= link_to 'Cancel the booking', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
-<% end %>
-  <p><%= link_to 'Back to all bookings', bookings_path %></p>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-4">
+          <!-- checkout -->
+          <div class="bg-white border p-3 sticky-top">
+            <a href="#" class="btn btn-primary w-100">Checkout</a>
+
+            <div class="d-flex justify-content-between mt-3">
+              <p><strong>Margherita</strong> (1)</p>
+              <p>£4.95</p>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+              <p><strong>Regina</strong> (2)</p>
+              <p>£5.95</p>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3 border-bottom">
+              <p><strong>Diavola</strong> (1)</p>
+              <p>£6.95</p>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+              <p><strong>Total</strong></p>
+              <p><strong>£17.85</strong></p>
+            </div>
+          </div>
+          <!-- /checkout -->
+        </div>
+      </div>
+    </div>
 </div>
