@@ -21,8 +21,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.status = "pending"
     @booking.boat = @boat
+    @booking.status = "pending"
+
     @booking.booking_price = @boat.price * (@booking.checkout - @booking.checkin).to_i / (24 * 60 * 60)
     authorize @booking
     if @booking.save
