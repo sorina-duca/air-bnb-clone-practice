@@ -5,6 +5,7 @@ class Boat < ApplicationRecord
   validates :name, presence: { message: 'You must pick the name of your boat' }
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  has_many :reviews, dependent: :destroy
   # uncomment after development of controller
 
   # validates :description, presence: true, length: { minimum: 100 }
