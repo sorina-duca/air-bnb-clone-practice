@@ -6,7 +6,7 @@
 <ul>
   <% @user.boats.each do |boat| %>
     <% if boat.bookings.count.positive? %>
-      <h4><%= link_to boat.name,  boat_bookings_path(boat) %> : <%= boat.bookings.count %> requests</h4>
+      <h4><%= link_to boat.name,  boat_path(boat) %> : <%= boat.bookings.count %> requests</h4>
     <% end %>
   <% end %>
 </ul>

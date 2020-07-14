@@ -2,7 +2,10 @@
   <div class="search-bar">
     <div class="input">
       <%= form_tag boats_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Where do you want to sail?" %>
+      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Where do you want to sail?" %>
+    </div>
+    <div class="input" id='capacity'>
+      <%= text_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "How many people?" %>
     </div>
     <div>
       <%= submit_tag "Search", class: "btn btn-primary" %>
@@ -15,6 +18,7 @@
     <% end %>
   </div>
 </div>
+
 
 
 

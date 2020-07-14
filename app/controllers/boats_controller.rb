@@ -3,16 +3,18 @@ class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      @location = params[:query]
-      @boats = policy_scope(Boat.geocoded).where('location ILIKE?', "%#{@location}%")
+    if params[:location].present? && params[:capacity].present?
+      @location = params[:location]
+      @capacity = params[:capacity]
+      @boats = policy_scope(Boat.geocoded).where('location ILIKE?', "%#{@location}%").where(capacity: @capacity)
     else
       @boats = policy_scope(Boat.geocoded).order(name: :asc)
     end
     @markers = @boats.map do |boat|
       {
         lat: boat.latitude,
-        lng: boat.longitude
+        lng: boat.longitude,
+        infoWindow: render_to_string(partial: "boat_popup", locals: { boat: boat })
       }
     end
   end

@@ -1,5 +1,7 @@
-<div class="container">
-  <h2>Sail away with one of the boats</h2>
+<div class="container text-center">
+  <h1>Sail away with one of the boats</h1>
+</div>
+<div id="content-index" class="ml-3 pl-3 mr-3 pr-3">
   <div class="grid-boats">
     <% @boats.each do |boat| %>
       <div>
@@ -8,4 +10,9 @@
       </div>
     <% end %>
   </div>
+  <div id="map-index" class="mt-3"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'></div>
+    </div>
 </div>

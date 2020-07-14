@@ -1,5 +1,9 @@
 .grid-boats {
   display: grid;
+  flex-grow: 1;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  padding: 16px;
 }
+
+
