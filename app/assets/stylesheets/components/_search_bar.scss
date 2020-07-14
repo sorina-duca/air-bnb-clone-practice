@@ -4,24 +4,25 @@
   position: relative;
   bottom: 150px;
   .input{
-    width: 500px;
-    #capacity{
+    width: 300px;
+  }
+
+  #capacity{
       width: 250px;
     }
-  }
 
   input {
     border-radius: 12px;
     padding: 30px;
   }
   .btn-primary {
-    margin-left: 12px;
+    margin-left: 2px;
     padding: 18px 36px;
   }
   .btn-primary a {
     color: white;
     text-decoration: none;
-    margin-left: 12px;
+    margin-left: 2px;
     padding: 18px 36px;
   }
 }
