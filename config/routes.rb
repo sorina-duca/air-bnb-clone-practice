@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: :index
+
+  resources :conversations do
+    resources :messages
+  end
 end
