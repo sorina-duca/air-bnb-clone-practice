@@ -4,7 +4,7 @@
 }
 .chat-box {
   .message-body-sender {
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0,0,0,0.08);
     padding: 12px 24px;
     margin: 8px 0;
     width: 30%;
@@ -13,7 +13,7 @@
     border-radius: 16px 16px 0px 16px;
   }
   .message-body-recipient {
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0,0,0,0.08);
     padding: 12px 24px;
     margin: 8px 0;
     width: 30%;
@@ -34,4 +34,10 @@
     height: 50%;
     border-radius: 100px;
   }
+}
+
+.chat-send {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
 }
