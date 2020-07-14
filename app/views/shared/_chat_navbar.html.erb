@@ -1,6 +1,5 @@
 <div class="chat-container">
-  <h1>Inbox</h1>
-  <% @conversations.each do |conversation| %>
+  <% @conversation.each do |conversation| %>
     <%= link_to conversation_messages_path(conversation) do %>
       <div class="message-container d-flex">
         <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
@@ -15,17 +14,10 @@
             </div>
             <div class="message-content">
               <div class="chat-username"><%= recipient.name %></div>
-              <div><%= conversation.messages.last.body %></div>
             </div>
-          </div>
-          <div class="mesage-info">
-            <div><p><%= conversation.messages.last.updated_at.strftime(" %l:%M") %></p></div>
-            <div class="round-messages"><%= conversation.messages.count %></div>
           </div>
         <% end %>
       </div>
     <% end %>
   <% end %>
 </div>
-
-

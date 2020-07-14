@@ -1,0 +1,27 @@
+.chat-message-container {
+  margin: 24px 10%;
+
+}
+.chat-box {
+  .message-body-sender {
+    background-color: rgba(0,0,0,0.05);
+    padding: 12px 24px;
+    margin: 8px 0;
+    width: 30%;
+    margin-left: 70%;
+    height: max-content;
+    border-radius: 16px 16px 0px 16px;
+  }
+  .message-body-recipient {
+    background-color: rgba(0,0,0,0.05);
+    padding: 12px 24px;
+    margin: 8px 0;
+    width: 30%;
+    height: max-content;
+    border-radius: 16px 16px 16px 0px;
+  }
+  p {
+    color: rgba(0,0,0,0.2);
+    margin: 0;
+  }
+}
