@@ -1,0 +1,52 @@
+.new-boat-container{
+  h4 {
+    font-weight: bold;
+  }
+  margin: 24px 10%;
+  .new-boat-form {
+    display: flex;
+    justify-content: space-around;
+    .boat-form-right{
+      width: 50%;
+      box-shadow: 4px 4px 20px rgba(0,0,0,0.12);
+      padding: 24px 70px;
+    }
+    .boat-form-price{
+      width: 33%;
+      height: 50%;
+      box-shadow: 4px 4px 20px rgba(0,0,0,0.12);
+      padding: 0px 24px;
+      padding-bottom: 24px;
+      padding-top: 24px;
+    }
+  }
+  .new-boat-title-content{
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.12);
+    margin: 12px 4.3%;
+    padding: 24px 70px;
+    .boat_description{
+      #boat_description{
+        height: 200px;
+      }
+    }
+  }
+  .new-boat-submit-btn{
+    margin: 24px 4.3%;
+    .btn {
+      padding: 12px 32px;
+      margin-bottom: 24px;
+    }
+  }
+  .new-boat-footer {
+    margin: 12px 4.3;
+    display: flex;
+    justify-content: space-between;
+    .review-card{
+      text-align: center;
+      width: 30%;
+      padding: 48px;
+    }
+  }
+}
+
+
