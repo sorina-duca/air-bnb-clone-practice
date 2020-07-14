@@ -1,14 +1,25 @@
 <div class="container">
-  <h2>Here are your bookings</h2>
-  <div class="grid-boats">
-    <% @bookings.each do |booking| %>
+  <div class="row">
       <div>
-        <%= cl_image_tag booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
-        <h2><%= link_to booking.boat.name, boat_booking_path(booking.boat, booking) %></h2>
-        <li>Your booking is: <strong><%= booking.status %></strong></li>
-        <li>From <strong><%= booking.checkin.strftime("%d %b") %></strong> -- To <strong><%= booking.checkout.strftime("%d %b") %></strong> </li>
-        <li>Total price : <strong><%= booking.booking_price %></strong> EUR</li>
+        <h2>My Sails</h2>
+        <%= render 'shared/tabs' %>
       </div>
-    <% end %>
+
+    <div class="grid-boats">
+      <% @bookings.each do |booking| %>
+      <div class="card-booking">
+      <%= cl_image_tag booking.boat.photo.key, crop: :fill, class:'card-img-top', alt:'Card image cap'%>
+        <div class="card-booking-infos">
+          <div>
+            <p class="checkin-checkout"><%= booking.checkin.strftime("%d %b") %> - <%= booking.checkout.strftime("%d %b") %> </p>
+            <h2 class="booking-boat"><%= link_to booking.boat.name, boat_booking_path(booking.boat, booking) %></h2>
+            <p class="booking-price"><%= booking.booking_price %> EUR</p>
+          </div>
+          <h2 class="card-booking-status badge badge-pill badge-light" id="<%= booking.status %>"><%= booking.status %></h2>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
