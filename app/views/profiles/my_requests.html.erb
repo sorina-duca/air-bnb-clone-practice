@@ -31,7 +31,7 @@
             <button type="button" class="btn btn-secondary"><%= link_to 'Reject', boat_booking_path(booking.boat, booking, booking:{ status:"rejected" }), method: :patch %></button>
           </div>
         </div>
-
+    <% end %>
   <% end %>
 <% end %>
 
@@ -40,5 +40,3 @@
   </div>
 
 </div>
-
-
