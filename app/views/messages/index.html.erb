@@ -1,0 +1,16 @@
+<div class="chat-message-container">
+  <div class="d-flex message-content nav-bar-chat">
+    <div style="display: flex;flex-grow: 1;">
+      <%= cl_image_tag @conversation.recipient.photo.key, height: 70, width: 70, crop: :fill %>
+      <p>You are talking with <strong><%= @conversation.recipient.name %></strong></p>
+    </div>
+      <%= link_to "Back", conversations_path, class: "btn btn-primary" %>
+  </div>
+  <div class="chat-body">
+    <%= render 'shared/chat_messages' %>
+  </div>
+
+  <div class="chat-send">
+    <%= render 'shared/chat_form' %>
+  </div>
+</div>

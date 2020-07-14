@@ -20,6 +20,7 @@
         <p><%= link_to 'Delete', boat_path(@boat), method: :delete %></p>
       <% end %>
       <%= link_to "Book this boat", new_boat_booking_path(@boat), class: "btn btn-primary" %>
+      <%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post", class: "btn btn-primary" %>
       <%= link_to "Review this boat", new_boat_review_path(@boat), class: "btn btn-primary" %>
   </div>
   <div class="col-6 pt-3 mt-3">

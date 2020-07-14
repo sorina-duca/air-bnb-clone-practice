@@ -20,6 +20,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @users = User.all
     @markers =
       {
         lat: @boat.latitude,

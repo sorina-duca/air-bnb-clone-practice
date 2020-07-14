@@ -1,0 +1,23 @@
+<div class="chat-container">
+  <% @conversation.each do |conversation| %>
+    <%= link_to conversation_messages_path(conversation) do %>
+      <div class="message-container d-flex">
+        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+          <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+          <% end %>
+          <div class="d-flex" style="flex-grow: 1;">
+            <div class="message-user-avatar">
+              <%= cl_image_tag recipient.photo.key, height: 70, width: 70, crop: :fill  %>
+            </div>
+            <div class="message-content">
+              <div class="chat-username"><%= recipient.name %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

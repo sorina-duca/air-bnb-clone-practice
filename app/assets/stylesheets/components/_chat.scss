@@ -1,0 +1,36 @@
+.chat-container {
+  a {
+    text-decoration: none;
+    color: rgba(0,0,0,0.8);
+    transition: 0.3s;
+    &:hover{
+      color: rgba(0,0,0,0.5);
+    }
+  }
+  margin: 24px 10%;
+  .message-container {
+    padding: 8px;
+    margin: 8px;
+    box-shadow: 2px 2px 24px rgba(0,0,0,0.2);
+    .mesage-info{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        margin: 0px;
+      }
+      .round-messages {
+        background-color: grey;
+        padding: 2px 10px;
+        border-radius: 50px;
+      }
+    }
+  }
+  .message-user-avatar {
+    margin-right: 16px;
+  }
+}
+
+.chat-username {
+  font-weight: bold;
+}
