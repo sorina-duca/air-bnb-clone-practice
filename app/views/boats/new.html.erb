@@ -25,7 +25,11 @@
           <h4>Put a price on your boat!</h4>
           <%= f.input :price, label: false, placeholder: "€500"  %>
         </div>
-        <div></div>
+        <div class="boat-form-photos">
+          <h4>Upload Some Pictures</h4>
+          <%#= f.input :photos, as: :file, input_html: {multiple: true} %>
+          <%= f.input :photo, as: :file %>
+        </div>
       </div>
     </div>
     <div class="new-boat-title-content">
