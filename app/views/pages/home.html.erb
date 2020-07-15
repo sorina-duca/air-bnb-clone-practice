@@ -7,9 +7,9 @@
     <div class="input" id='capacity'>
       <%= text_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "How many people?" %>
     </div>
-    <div>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    </div>
+    <%= text_field_tag :checkin, params[:checkin], class: "datepick", placeholder: "check-in date" %>
+    <%= text_field_tag :checkout, params[:checkout], class: "datepick", placeholder: "check-out date" %>
+      <div class="input"><%= submit_tag "Search", class: "btn btn-primary" %></div>
     <% end %>
     <% if current_user.nil? %>
       <div class="btn btn-primary">
