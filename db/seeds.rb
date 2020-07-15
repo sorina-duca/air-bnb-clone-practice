@@ -63,10 +63,34 @@ locations = [
   'Frieda-Arnheim-Promenade 36, 13585 Berlin ',
   'Mahnkopfweg 14-7, 13595 Berlin ',
 ]
+
+description = [
+  'Currently our most popular party boat for swimming and barbecue tours.',
+  '44 square meter top deck which offers space for your boat trip.',
+  'The boat can be rented with different engines. If you do not own a license you can get the 8 hp or the 15 hp engine. ',
+  'During the weekend, boat tours with a minimum traveltime of 3 hours can be booked.',
+  'You are welcome to bring food and drinks on board (free of charge).',
+  'Relax with drinks and music while heating your tub with a wood stove. Bring your friends and experience Berlin in the craziest way.',
+  'Starting point is a houseboat on the restaurant ship Klipper which serves as a changing room and welcome location.',
+  'Enjoy an unforgettable boat trip across the Havel. The ship will take you to the most beautiful bays and beaches of Berlin',
+  'Time to go for a swim or to enjoy a cool drink. In the fore ship is a cabin with two beds and a toilet.',
+  'The ship is suitable as an event location for all needs.',
+  'Rent it for a boat trip with friends, family or the company. ',
+  'Each raft is equipped with its own barbecue and cabin. The latter allowing you a comfortable and dry tour on the Havel, even on rainy days.',
+  'Pack your swimsuit and seven of your best friends together and jump on the raft for an unique tour of Berlin.',
+  'The daycruiser 640 can carry up to 6 people and offers plenty of space for your boat trip in Berlin.',
+  'This large charterboat will take you across the Spree in style and we will make sure your day is perfect! ',
+  'Your boat trip at the Hopper always starts and ends at the Oberbaumbruecke (in front of the bar "Pirates").',
+  'Our system immediately sends you a link to the booking calendar for all pontoon boats in Köpenick and Potsdam.',
+  'The nicely redesigned former control boat has a roof deck and a seating area in the back, which is protected from sun and rain, as well as an indoor area. ',
+  'Enjoy the tranquility of the Havel while sailing on this Nordic folk boat. It offers space for up to four people and is perfect for a sailing trip towards lake Wannsee.',
+  'A small, comfortable motor boat, which manages to maneuver well due to its small size.',
+]
 20.times do
   boat = Boat.create(
     name: Faker::Name.female_first_name,
     location: locations.sample,
+    description: description.sample,
     capacity: [2, 4, 6].sample,
     price: rand(70..1000),
     category: ['Sailingboat', 'Motorboat'].sample,
