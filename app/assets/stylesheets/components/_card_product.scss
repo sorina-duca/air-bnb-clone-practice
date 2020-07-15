@@ -34,3 +34,33 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+#boat-index {
+  position:relative;
+  width: 650px;
+  height: 250px;
+  margin-bottom: 16px;
+  img {
+    width: 250px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  #boat-index-infos {
+    height: 200px;
+    p {
+       font-weight: 500;
+      font-size: 15px;
+    }
+  }
+}
+
+#boat-index-reviews {
+    position: absolute;
+    top: 240px;
+    bottom: 3px;
+    right: 5px;
+    left: 640px;
+    width: 40px;
+  }
