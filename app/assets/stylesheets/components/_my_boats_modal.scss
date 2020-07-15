@@ -1,0 +1,17 @@
+.my-boats-modal{
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  position: absolute;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .boats-modal-content{
+    width: 100%;
+    height: 100%;
+    margin: 16.8% 5% 24px 22%;
+    background-color: white;
+    border-radius: 16px;
+  }
+}

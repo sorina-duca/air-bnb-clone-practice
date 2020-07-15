@@ -17,7 +17,9 @@ class ProfilesController < ApplicationController
 
   def show
     authorize @user
+    @boats = Boat.where(user: current_user.id)
     @boat = Boat.find_by(user: current_user.id)
+    @user = User.find(current_user.id)
   end
 
   def edit

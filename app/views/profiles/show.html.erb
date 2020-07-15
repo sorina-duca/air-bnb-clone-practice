@@ -21,7 +21,7 @@
     </div>
     <div class="profile-avatar" style="margin-right: 24px;position: relative;bottom: 45px;left: 45px;">
       <div class="profile-user-picture">
-        <div> <%= cl_image_tag @user.photo.key, width: 120, height: 120, crop: :fill %> </div>
+        <div id="profile-avatar"> <%= cl_image_tag @user.photo.key, width: 120, height: 120, crop: :fill %> </div>
         <div class="d-flex">
           <p style="font-size: 14px;"><%= link_to "Change", edit_user_registration_path %></p>
         </div>
@@ -123,6 +123,22 @@
   </div>
 </div>
 
+
+<!-- Modal Pop-Up -->
+<!-- Here are located all the pop-up windows -->
+
+<div class="bg-modal">
+  <div class="modal-content">
+    <div class="close">+</div>
+    <%#= render 'shared/edit_profile_picture' %>
+  </div>
+</div>
+
+<!-- <div class="my-boats-modal">
+  <div class="boats-modal-content">
+    <%#= render 'shared/my_boats' %>
+  </div>
+</div> -->
 
 
 <!-- <p><%#= @user.name %> has <%= @user.boats.count %> boats</p>
