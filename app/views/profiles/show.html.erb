@@ -15,18 +15,24 @@
 
   </div>
   <div class="profile-show-modal">
-    <h4>Welcome on Board! <%= @user.name %></h4>
+    <h4>Welcome on board <strong><%= @user.name %></strong>!</h4>
     <div class="profile-cover-picture">
       <%= image_tag "profile-cover-picture", alt: "profile-cover" %>
     </div>
-    <div class="profile-avatar">
+    <div class="profile-avatar" style="margin-right: 24px;position: relative;bottom: 45px;left: 45px;">
       <div class="profile-user-picture">
-        <div> <%= cl_image_tag @user.photo.key, alt: "alttext" %> </div>
+        <div> <%= cl_image_tag @user.photo.key, width: 120, height: 120, crop: :fill %> </div>
         <div class="d-flex">
-          <%= link_to %>
+          <p style="font-size: 14px;"><%= link_to "Change", edit_user_registration_path %></p>
         </div>
       </div>
-      <div class="profule-user-info"></div>
+      <div class="profile-user-info" style="display: flex;flex-direction: column;justify-content: end;margin-bottom: 2%;margin-left: 2%;">
+        <strong><h4><%= @user.name %></h4></strong>
+        <div class="d-flex">
+          <p style="margin-right: 24px"><%= @user.bio %></p>
+          <p><i class="fas fa-map-marker-alt" style="color: #ff5f40; margin-right: 8px;"></i>Berlin, DE</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
