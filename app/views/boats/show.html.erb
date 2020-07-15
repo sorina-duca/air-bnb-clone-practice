@@ -12,6 +12,9 @@
       <% if @boat.capacity.present? %>
         <p><%= @boat.name %> can accomodate <%= @boat.capacity %> people. </p>
       <% end %>
+      <% if @boat.description.present? %>
+        <p><%= @boat.description %></p>
+      <% end %>
       <p>PRICE: <%= @boat.price %> EURO / day</p>
       <% if policy(@boat).edit? %>
         <p><%= link_to "Update", edit_boat_path(@boat) %></p>
