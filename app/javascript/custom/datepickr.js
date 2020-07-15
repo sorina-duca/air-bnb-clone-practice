@@ -14,6 +14,15 @@ flatpickr('.datepicker', {
     disable: unavailable,
     minDate: "today"
 });
-}
+};
+
+const initDatepickrHome = () => {
+  flatpickr('.datepick', {
+    altInput: true,
+    dateFormat: "Y-m-d",
+    minDate: "today"
+});
+};
 
 export {initDatepicker}
+export { initDatepickrHome }
