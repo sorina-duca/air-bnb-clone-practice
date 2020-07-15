@@ -8,8 +8,12 @@ end
 puts " "
 
 puts 'Cleaning up database'
+Review.destroy_all
+puts 'Reviews are cleaned'
 Booking.destroy_all
+puts 'Bookings are cleaned'
 Boat.destroy_all
+puts 'Boats are cleaned'
 puts 'Database is cleaned'
 
 10.times do |i|
@@ -73,4 +77,73 @@ locations = [
   puts "Boat #{boat.id} was created"
 end
 
+puts "Boats Created"
+puts "Adding some reviews"
+
+comments = [
+  'Due the small size of the boat the paddles are scraping on the leg and it is very uncomfortable to row',
+  'Good. But for two big people is too small',
+  'The boat is quite sturdy and has held two adults very well ',
+  'So far, so good.',
+  'It is a good boat but there is better quality for a little more expensive price ',
+  'I can take on vacation and launch it on any body of water without making a big deal or planning ahead',
+  'love the canoe',
+  'I was heart broken',
+  'Amazing boat experience',
+  'The captain was drunk',
+  'Best party I had in my life',
+  'I lost my wedding ring on the spree',
+  'The material is really good.',
+  'Im having a GREAT time with this boat',
+  'I’m the happiest person with this boat',
+  'Life is like a boat. You carry it and there are holes in it... Couldnt even use it once',
+  'SUPER FAST AND IS VERY STABLE',
+  'Questo regalo é stato molto apprezzato',
+  'La barca en si calidad precio es excepcional , los materiales se ven robustos',
+  'Very Happy with it',
+  'The captain arrived late, and drunk',
+  'The police stop us',
+  'Bad experience',
+  'Excepcional experience',
+  'Bateau vraiment sympa, nous lavons utilisé pour aller sur un lac',
+  'Super product, and the best bit... ',
+  'Exactly as described',
+  'Good',
+  'Nice',
+  'Really bad, but good beer',
+  'Very well made and stitching extremely well done.',
+  'Du bekommst, was du bezahlst. Eigentlich trifft das so, meist zu.',
+  'Das Boot habe ich im August 2018 gekauft und als es ankam sofort aufgepumpt und auf Dichtigkeit getestet.',
+  'We love the seahawk.',
+  'Great for adventures on lakes and rivers.',
+  'So durable and tough for any conditions',
+  'We fit roughly 5 people in it with ease, so it is very large!',
+  'Would recommend to anyone.',
+  'It is totally worth it! Good quality, spacious (for 4 people) and easy to use.',
+  'Very recommendable!',
+  'Item is exactly as described.',
+  'Quality is great and have now been using it for 2 weeks with no problems.',
+  'Tip Top',
+  'Comfortable for 2-3 persons.',
+  'My friend and our children had a great time.',
+  'The boat is huge and could fit me, my friend...we are both 5ft 4',
+  'Brilliant boat',
+  'Molto spazioso',
+  'Tante emozioni che mi mancavano',
+  'Possibilità di utilizzare due coppie di remi',
+  'It is quite heavy.',
+  'I filled it up completely in 10 mints.',
+]
+
+50.times do
+  review = Review.create(
+    content: comments.sample,
+    rating: rand(2..5),
+    user_id: User.all.sample.id,
+    boat_id: Boat.all.sample.id,
+    )
+  puts "Review #{review.id} was created"
+end
+
+puts "Reviews Created"
 puts "Done, ready to sail"
