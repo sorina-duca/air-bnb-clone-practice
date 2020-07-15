@@ -13,9 +13,9 @@
     <div class="new-boat-form">
       <div class="boat-form-right">
         <h4>Start listing your boat</h4>
-        <p>Which type of boat is it?</p>
+        <p>What type of boat is it?</p>
         <%= f.input :category, collection: ['motorboat', 'sailboat'], label: false %>
-        <p>How many passangers can it take?</p>
+        <p>How many passangers can it accomodate?</p>
         <%= f.input :capacity, collection: [2, 4, 6], label: false %>
         <p>Where is it located?</p>
         <%= f.input :location, label: false %>
@@ -23,7 +23,7 @@
       <div class="boat-form-price">
         <div>
           <h4>Put a price on your boat!</h4>
-          <%= f.input :price, label: false, placeholder: "€500"  %>
+          <%= f.input :price, label: false, placeholder: "€500/day"  %>
         </div>
         <div class="boat-form-photos">
           <h4>Upload Some Pictures</h4>
@@ -33,8 +33,8 @@
       </div>
     </div>
     <div class="new-boat-title-content">
-      <h4>Give to your boat a nice Name & Description</h4>
-      <p>The better the description, the more guest you will have. <a href="#">More info.</a></p>
+      <h4>Give your boat a nice Name & Description</h4>
+      <p>The better the description, the more guests you will have. <a href="#">More info.</a></p>
       <p>Name</p>
       <%= f.input :name, label: false, placeholder: "Never Sink III" %>
       <p>Description of the boat</p>
@@ -56,12 +56,12 @@
       <div class="review-card">
         <h1><i class="fas fa-award"></i></h1>
         <h5>€1,000,000 Host Guarantee</h5>
-        <p style="color:rgba(0,0,0,0.7); text-align: justify;">Your peace of mine is priceless. So we don't charge for it. Every <a href="#" style="color: red">eligible</a> booking on Boatbnb is covered by our Host Guarantee - at no additional cost to you.</p>
+        <p style="color:rgba(0,0,0,0.7); text-align: justify;">Your peace of mind is priceless. So we don't charge for it. Every <a href="#" style="color: red">eligible</a> booking on Boatbnb is covered by our Host Guarantee - at no additional cost to you.</p>
       </div>
       <div class="review-card">
         <h1><i class="fas fa-lock"></i></h1>
         <h5>Secure Payments</h5>
-        <p style="color:rgba(0,0,0,0.7); text-align: justify;">Our fast, flexible payments system puts money in your banck account 24 hours after guests check in.</p>
+        <p style="color:rgba(0,0,0,0.7); text-align: justify;">Our fast, flexible payments system puts money in your bank account 24 hours after guests check in.</p>
       </div>
     </div>
   </div>
