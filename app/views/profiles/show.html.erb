@@ -1,4 +1,37 @@
-<h2>This is the profile of <%= @user.name %></h2>
+<div class="profile-show-container">
+  <div class="profile-show-menu">
+    <div class="profile-menu">
+      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-user-alt"></i><%= link_to "Profile", "#", class: "dropdown-item" %></p>
+      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-ship"></i><%= link_to "My Boats", "#", class: "dropdown-item" %></p>
+      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-inbox"></i><%= link_to "Requests", "#", class: "dropdown-item" %></p>
+      <p style="display: flex;align-items: center; text-align: start"><i class="far fa-calendar-alt"></i><%= link_to "Bookings", "#", class: "dropdown-item" %></p>
+    </div>
+    <div class="profile-menu">
+      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-user-cog"></i><%= link_to "Settings", "#", class: "dropdown-item" %></p>
+      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-info-circle"></i><%= link_to "More Info", "#", class: "dropdown-item" %></p>
+      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-lock"></i><%= link_to "Privacy", "#", class: "dropdown-item" %></p>
+      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-sign-out-alt"></i><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></p>
+    </div>
+
+  </div>
+  <div class="profile-show-modal">
+    <h4>Welcome on Board! <%= @user.name %></h4>
+    <div class="profile-cover-picture">
+      <%= image_tag "profile-cover-picture", alt: "profile-cover" %>
+    </div>
+    <div class="profile-avatar">
+      <div class="profile-user-picture">
+        <div> <%= cl_image_tag @user.photo.key, alt: "alttext" %> </div>
+        <div class="d-flex">
+          <%= link_to %>
+        </div>
+      </div>
+      <div class="profule-user-info"></div>
+    </div>
+  </div>
+</div>
+
+
 
 <p><%= @user.name %> has <%= @user.boats.count %> boats</p>
 <%= link_to 'See Boats', my_boats_profiles_path %>
@@ -21,6 +54,3 @@
 <p>E-mail</p>
 <%= @user.email %>
 <hr>
-
-<%= link_to 'Edit Profile', edit_user_registration_path(current_user.id) %>
-
