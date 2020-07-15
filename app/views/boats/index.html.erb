@@ -8,7 +8,6 @@
       <!-- <div> -->
     <div class="card-product" id="boat-index">
       <%= cl_image_tag boat.photo.key, height: 300, width: 300, crop: :fill %>
-
       <div class="card-product-infos" id="boat-index-infos">
         <h1><%= link_to boat.name, boat_path(boat) %></h1>
         <p><%= boat.description %></p>

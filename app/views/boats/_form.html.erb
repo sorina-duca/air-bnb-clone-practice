@@ -1,11 +1,11 @@
 <%= simple_form_for @boat do |f|%>
   <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :capacity, collection: [2, 4, 6] %>
   <%= f.input :location %>
+  <%= f.input :capacity, collection: [2, 4, 6] %>
   <%= f.input :price %>
   <%= f.input :category, collection: ['motorboat', 'sailboat'] %>
+  <%= f.input :description %>
   <%= f.input :photo, as: :file %>
   <!-- we must make the fields allow selection Select2 -->
   <%= f.submit %>
-  <% end %>
+<% end %>

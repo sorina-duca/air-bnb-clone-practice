@@ -1,6 +1,68 @@
-<div class="container ml-3">
-  <h1>Post your boat on BoatBnB </h1>
-  <%= render "form" %>
+<div class="new-boat-banner">
+  <div class="new-boat-logo">
+    <%= image_tag "captain", alt: "captain" %>
+  </div>
+  <div class="new-boat-banner-text">
+    <h4>Share your boat with us</h4>
+    <p>You could earn <strong>€500</strong> extra after hosting your ship <a href="#">Terms & Conditions</a></p>
+  </div>
 </div>
 
-
+<%= simple_form_for @boat do |f|%>
+  <div class="new-boat-container">
+    <div class="new-boat-form">
+      <div class="boat-form-right">
+        <h4>Start listing your boat</h4>
+        <p>Which type of boat is it?</p>
+        <%= f.input :category, collection: ['motorboat', 'sailboat'], label: false %>
+        <p>How many passangers can it take?</p>
+        <%= f.input :capacity, collection: [2, 4, 6], label: false %>
+        <p>Where is it located?</p>
+        <%= f.input :location, label: false %>
+      </div>
+      <div class="boat-form-price">
+        <div>
+          <h4>Put a price on your boat!</h4>
+          <%= f.input :price, label: false, placeholder: "€500"  %>
+        </div>
+        <div class="boat-form-photos">
+          <h4>Upload Some Pictures</h4>
+          <%#= f.input :photos, as: :file, input_html: {multiple: true} %>
+          <%= f.input :photo, as: :file %>
+        </div>
+      </div>
+    </div>
+    <div class="new-boat-title-content">
+      <h4>Give to your boat a nice Name & Description</h4>
+      <p>The better the description, the more guest you will have. <a href="#">More info.</a></p>
+      <p>Name</p>
+      <%= f.input :name, label: false, placeholder: "Never Sink III" %>
+      <p>Description of the boat</p>
+      <%= f.input :description, label: false, placeholder: "Havel and Wannsee are the home of this exclusive party boat. Here you will find Berlin's most beautiful bays and beaches for swimming and barbecue stops. You are welcome to bring food and drinks on board (free of charge). During the weekend, boat tours with a minimum traveltime of 3 hours can be booked." %>
+    </div>
+    <div class="new-boat-submit-btn">
+        <%= f.submit "Submit Boat", class: "btn btn-primary"%>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+            <label class="custom-control-label" for="defaultUnchecked"><p>I agree to the Boat-BnB <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p></label>
+        </div>
+    </div>
+    <div class="new-boat-footer">
+      <div class="review-card">
+        <h1><i class="far fa-handshake"></i></h1>
+        <h5>Trust & Safety</h5>
+        <p style="color:rgba(0,0,0,0.7); text-align: justify;">Trust & safety tools help you accept a booking only if you're 100% comfortable.</p>
+      </div>
+      <div class="review-card">
+        <h1><i class="fas fa-award"></i></h1>
+        <h5>€1,000,000 Host Guarantee</h5>
+        <p style="color:rgba(0,0,0,0.7); text-align: justify;">Your peace of mine is priceless. So we don't charge for it. Every <a href="#" style="color: red">eligible</a> booking on Boatbnb is covered by our Host Guarantee - at no additional cost to you.</p>
+      </div>
+      <div class="review-card">
+        <h1><i class="fas fa-lock"></i></h1>
+        <h5>Secure Payments</h5>
+        <p style="color:rgba(0,0,0,0.7); text-align: justify;">Our fast, flexible payments system puts money in your banck account 24 hours after guests check in.</p>
+      </div>
+    </div>
+  </div>
+<% end %>
