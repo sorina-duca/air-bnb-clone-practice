@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_conversation
   skip_before_action :authenticate_user!, only: :index
   skip_after_action :verify_policy_scoped, only: :index
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @message = Message.new
