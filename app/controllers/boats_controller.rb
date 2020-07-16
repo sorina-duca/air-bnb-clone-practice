@@ -31,6 +31,10 @@ class BoatsController < ApplicationController
         lng: @boat.longitude
       }
     authorize @boat
+    @booking = Booking.new
+    @unavailable_dates = Booking.where(boat_id: @boat.id).map do |booking|
+      { from: booking.checkin, to: booking.checkout }
+    end
   end
 
   def new
