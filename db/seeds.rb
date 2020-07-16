@@ -163,8 +163,8 @@ comments = [
   review = Review.create(
     content: comments.sample,
     rating: rand(2..5),
-    user_id: User.all.sample.id,
-    boat_id: Boat.all.sample.id,
+    user_id: User.all.sample,
+    boat_id: Boat.all.sample,
     )
   puts "Review #{review.id} was created"
 end
