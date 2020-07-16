@@ -33,6 +33,7 @@ import { initDatepicker } from '../custom/datepickr';
 import { initDatepickrHome } from '../custom/datepickr';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+// import { initModalProfilePage } from '../components/modalpopup';
 import { initMapbox } from './mapbox';
 import { initMapIndex } from './mapbox';
 
@@ -46,6 +47,17 @@ document.addEventListener('turbolinks:load', () => {
 
   // initSelect2();
 
+
+document.getElementById('btn-boat').addEventListener('click',
+  function(){
+    document.querySelector('.my-boats-modal').style.display = "flex";
+    document.getElementById('profile-show-modal').style.display = "none";
+  });
+
+document.getElementById('btn-profile').addEventListener('click',
+  function(){
+    document.querySelector('.my-boats-modal').style.display = "none";
+    document.getElementById('profile-show-modal').style.display = "block";
+  });
+
 });
-
-
