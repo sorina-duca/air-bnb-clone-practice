@@ -1,11 +1,16 @@
 .search-criteria {
-  // display: flex;
   justify-content: center;
+  width: 588px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  background-color: #94e7ff;
+
 }
 
 
 .search-item {
-  // background-color: gray;
-  padding: 30px;
+  color: gray;
+  padding: 15px;
   border-radius: 12px;
+  background-color: #94e7ff;
 }
