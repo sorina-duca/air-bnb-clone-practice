@@ -1,23 +1,11 @@
+
+
+
 <div class="container text-center">
   <h1>Sail away with one of the boats</h1>
-
-<% if params[:location] || params[:capacity] || params[:checkin] %>
-<div class="d-flex search-criteria">
-  <div class="search-item">
-    <h4>🔍  <%= params[:location] %></h4>
-  </div>
-  <div class="search-item">
-    <h4><%= params[:capacity] %> people</h4>
-  </div>
-  <div class="search-item">
-    <h4><%= params[:checkin] %></h4>
-  </div>
-  <div class="search-item">
-    <h4><%= params[:checkout] %></h4>
-  </div>
-
+  <div class="container">
+  <%= render "search_bar_index" %>
 </div>
-<% end %>
 </div>
 
 <div id="content-index" class="ml-3 pl-3 mr-3 pr-3">
@@ -45,6 +33,8 @@
      data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'></div>
   </div>
 </div>
+
+
 
 
 <!-- scss currently in _card_product component -->
