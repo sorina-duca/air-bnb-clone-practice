@@ -13,7 +13,11 @@
     <% @boats.each do |boat| %>
       <!-- <div> -->
     <div class="card-product" id="boat-index">
-      <%= cl_image_tag boat.photo.key, height: 300, width: 300, crop: :fill %>
+      <% if boat.photo.attached?  %>
+        <%= cl_image_tag boat.photo.key, height: 300, width: 300, crop: :fill %>
+      <% else %>
+        <%= cl_image_tag 'add-new-boat_copy_g6t5lo', height: 300, width: 300, crop: :fill %>
+      <% end %>
       <div class="card-product-infos" id="boat-index-infos">
         <div class="d-flex justify-content-between">
           <h1><%= link_to boat.name, boat_path(boat) %></h1>
