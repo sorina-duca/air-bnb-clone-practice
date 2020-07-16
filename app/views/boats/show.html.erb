@@ -27,9 +27,11 @@
            <p><%= link_to 'Delete', boat_path(@boat), method: :delete, class: "btn btn-danger" %></p>
           <% end %>
           </div>
-            <% unless policy(@boat).edit? %>
-              <%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post", class: "btn btn-primary" %>
-              <%= link_to "Review this boat", new_boat_review_path(@boat), class: "btn btn-primary" %>
+            <% if current_user %>
+              <% unless policy(@boat).edit?%>
+                <%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post", class: "btn btn-primary" %>
+                <%= link_to "Review this boat", new_boat_review_path(@boat), class: "btn btn-primary" %>
+              <% end %>
             <% end %>
   </div>
   <div class="col-4 pt-3">
