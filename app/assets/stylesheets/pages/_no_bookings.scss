@@ -26,3 +26,16 @@
     }
   }
 }
+.bg-no-requests {
+  display: block;
+  background: image-url('no-request-bg') no-repeat center;
+  height: 460px;
+  .no-bookings-text{
+    padding: 5%;
+    padding-left: 15%;
+    h2 {
+      padding-bottom: 50px;
+      text-shadow: 3px 3px rgba(255,255,255,0.7)
+    }
+  }
+}
