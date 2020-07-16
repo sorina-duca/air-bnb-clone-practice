@@ -1,0 +1,13 @@
+<div class="myboats-profile-container ml-3 pl-3 mr-3 pr-3">
+  <div class="grid-myboats">
+    <% @boats.each do |boat| %>
+      <div class="myboat-card">
+        <%= cl_image_tag boat.photo.key, height: 210, width: 210, crop: :fill %>
+        <div class="mt-4 myboat-card-info d-flex justify-content-between align-items-center">
+          <h4><%= link_to boat.name, boat_path(boat) %></h4>
+          <p><%= link_to 'Info', boat_path(boat)  %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

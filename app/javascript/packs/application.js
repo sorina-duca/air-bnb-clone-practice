@@ -33,7 +33,7 @@ import { initDatepicker } from '../custom/datepickr';
 import { initDatepickrHome } from '../custom/datepickr';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-import { initModalProfilePage } from '../components/modalpopup';
+// import { initModalProfilePage } from '../components/modalpopup';
 import { initMapbox } from './mapbox';
 import { initMapIndex } from './mapbox';
 
@@ -49,14 +49,15 @@ document.addEventListener('turbolinks:load', () => {
 
 });
 
-document.getElementById('profile-avatar').addEventListener('click',
+document.getElementById('btn-boat').addEventListener('click',
   function(){
-    document.querySelector('.bg-modal').style.display = "flex";
+    document.querySelector('.my-boats-modal').style.display = "flex";
+    document.getElementById('user-info').style.display = "none";
+    document.getElementById('profile-show-container').style.height = "100vh";
   });
 
-  document.querySelector('.close').addEventListener('click',
-  function() {
-    document.querySelector('.bg-modal').style.display = "none";
+document.getElementById('btn-profile').addEventListener('click',
+  function(){
+    document.querySelector('.my-boats-modal').style.display = "none";
   });
-
 
