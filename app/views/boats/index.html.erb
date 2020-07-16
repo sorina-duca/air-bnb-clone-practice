@@ -15,12 +15,38 @@
     <div class="card-product" id="boat-index">
       <%= cl_image_tag boat.photo.key, height: 300, width: 300, crop: :fill %>
       <div class="card-product-infos" id="boat-index-infos">
-        <h1><%= link_to boat.name, boat_path(boat) %></h1>
+        <div class="d-flex justify-content-between">
+          <h1><%= link_to boat.name, boat_path(boat) %></h1>
+        <!-- REVIEW STARS -->
+
+          <% rating = [] %>
+          <% if boat.reviews.count != 0 %>
+            <% boat.reviews.each do |review| %>
+              <% rating << review.rating %>
+            <% end %>
+            <% prom = rating.sum.to_f / boat.reviews.count %>
+            <div class="d-flex">
+              <% prom.to_i.times do  %>
+              <i class="fas fa-star" style="color: #ffa931"></i>
+            <% end %>
+            <%= prom.round(1) %> (<%= boat.reviews.count %>)
+            </div>
+
+          <% else %>
+            <% puts "" %>
+          <% end %>
+          <!-- END -->
+
+        </div>
+
         <p><%= boat.description %></p>
       </div>
       <div id="reviews-boat-index">
-        <p>⭐️</p>
-<!-- reviews bottom right corner -->
+
+<!-- REVIEW STARS -->
+
+
+<!-- END -->
       </div>
     </div>
     <% end %>
