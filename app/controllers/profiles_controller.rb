@@ -7,7 +7,6 @@ class ProfilesController < ApplicationController
   end
 
   def my_requests
-    raise
     authorize @user
   end
 
