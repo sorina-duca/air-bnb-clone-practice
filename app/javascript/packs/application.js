@@ -30,22 +30,33 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDatepicker } from '../custom/datepickr';
-import { initDatepickrHome } from '../custom/datepickr';
+// import { initDatepickrHome } from '../custom/datepickr';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 // import { initModalProfilePage } from '../components/modalpopup';
 import { initMapbox } from './mapbox';
 import { initMapIndex } from './mapbox';
 
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   initDatepicker();
+// });
 document.addEventListener('turbolinks:load', () => {
+
   initUpdateNavbarOnScroll();
   initMapbox();
+
   initDatepicker();
+
+
+
   initMapIndex();
-  initDatepickrHome();
+  // initDatepickrHome();
   // Call your functions here, e.g:
 
   // initSelect2();
+
+
 
 
   const btnBoat = document.getElementById('btn-boat')
@@ -70,5 +81,5 @@ document.addEventListener('turbolinks:load', () => {
   searchButton && searchButton.addEventListener('click', () => {
     searchForm.submit()
   });
-
 });
+

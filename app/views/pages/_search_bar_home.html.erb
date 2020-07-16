@@ -6,7 +6,10 @@
     <div class="input" id='capacity'>
       <%= text_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "How many people?" %>
     </div>
-    <%= text_field_tag :checkin, params[:checkin], class: "datepick", placeholder: "check-in date" %>
+    <div class='datepick'>
+      <%= text_field_tag :checkin, params[:checkin], placeholder: "check-in date" %>
+    </div>
+
     <%= text_field_tag :checkout, params[:checkout], class: "datepick", placeholder: "check-out date" %>
       <div class="input"><%= submit_tag "Search", class: "btn btn-primary", id: "search-submit" %></div>
     <% end %>

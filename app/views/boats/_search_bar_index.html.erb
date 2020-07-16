@@ -7,8 +7,8 @@
       <span class="input" id='capacity'>
         <%= text_field_tag :capacity, params[:capacity], class: "form-control d-inline", placeholder: "People?" %>
       </span>
-      <%= text_field_tag :checkin, params[:checkin], class: "datepick d-inline", placeholder: "check-in" %>
-      <%= text_field_tag :checkout, params[:checkout], class: "datepick d-inline", placeholder: "check-out" %>
+        <%= hidden_field_tag :checkin, params[:checkin], class: "datepicker d-inline", placeholder: "check-in" %>
+      <%= hidden_field_tag :checkout, params[:checkout], class: "datepicker d-inline", placeholder: "check-out" %>
       <span class="input"><%= submit_tag "Search", class: "btn btn-primary" %>
       </span>
     <% end %>
