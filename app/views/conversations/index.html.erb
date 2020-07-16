@@ -23,7 +23,11 @@
             </div>
           </div>
           <div class="mesage-info">
-            <!-- <div><p><%#= conversation.messages.last.updated_at.strftime(" %l:%M") %></p></div> -->
+            <% if conversation.messages.last.nil? %>
+              <div><p> </p></div>
+            <% else %>
+              <div><p><%= conversation.messages.last.updated_at.strftime(" %l:%M") %></p></div>
+            <% end %>
             <div class="round-messages"><%= conversation.messages.count %></div>
           </div>
         <% end %>
