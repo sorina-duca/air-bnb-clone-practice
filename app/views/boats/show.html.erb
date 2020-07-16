@@ -7,7 +7,12 @@
           <p><%= render 'shared/reviews' %></p>
         </div>
         </div>
+        <% if @boat.photo.attached? %>
           <%= cl_image_tag @boat.photo.key, height: 500, width: 1100, crop: :fill %>
+        <% else %>
+          <%= cl_image_tag 'no-boat-picture-01_zae6dt', height: 500, width: 1100, crop: :fill %>
+        <% end %>
+
     </div>
   </div>
   <div class="row">
