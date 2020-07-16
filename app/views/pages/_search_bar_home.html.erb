@@ -1,6 +1,6 @@
 <div class="search-bar-home">
     <div class="input">
-      <%= form_tag boats_path, method: :get do %>
+      <%= form_tag boats_path, method: :get, local: true, id: "search-form" do %>
       <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Where do you want to sail?" %>
     </div>
     <div class="input" id='capacity'>
@@ -8,7 +8,7 @@
     </div>
     <%= text_field_tag :checkin, params[:checkin], class: "datepick", placeholder: "check-in date" %>
     <%= text_field_tag :checkout, params[:checkout], class: "datepick", placeholder: "check-out date" %>
-      <div class="input"><%= submit_tag "Search", class: "btn btn-primary" %></div>
+      <div class="input"><%= submit_tag "Search", class: "btn btn-primary", id: "search-submit" %></div>
     <% end %>
 </div>
 

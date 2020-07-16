@@ -48,16 +48,27 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 
 
-document.getElementById('btn-boat').addEventListener('click',
+  const btnBoat = document.getElementById('btn-boat')
+
+  btnBoat && btnBoat.addEventListener('click',
   function(){
     document.querySelector('.my-boats-modal').style.display = "flex";
     document.getElementById('profile-show-modal').style.display = "none";
   });
 
-document.getElementById('btn-profile').addEventListener('click',
+  const btnProfile = document.getElementById('btn-profile')
+
+  btnProfile && btnProfile.addEventListener('click',
   function(){
     document.querySelector('.my-boats-modal').style.display = "none";
     document.getElementById('profile-show-modal').style.display = "block";
+  });
+
+  const searchButton = document.getElementById('search-submit');
+  const searchForm = document.getElementById('search-form');
+
+  searchButton && searchButton.addEventListener('click', () => {
+    searchForm.submit()
   });
 
 });

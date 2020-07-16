@@ -1,14 +1,15 @@
 
 <div class="search-bar-index mt-3">
-    <div class="input">
-      <%= form_tag boats_path, method: :get do %>
-      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Location" %>
-    </div>
-    <div class="input" id='capacity'>
-      <%= text_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "People?" %>
-    </div>
-    <%= text_field_tag :checkin, params[:checkin], class: "datepick", placeholder: "check-in" %>
-    <%= text_field_tag :checkout, params[:checkout], class: "datepick", placeholder: "check-out" %>
-      <div class="input"><%= submit_tag "Search", class: "btn btn-primary" %></div>
+    <%= form_tag boats_path, method: :get do %>
+      <span class="input">
+        <%= text_field_tag :location, params[:location], class: "form-control d-inline w-auto", placeholder: "Location" %>
+      </span>
+      <span class="input" id='capacity'>
+        <%= text_field_tag :capacity, params[:capacity], class: "form-control d-inline", placeholder: "People?" %>
+      </span>
+      <%= text_field_tag :checkin, params[:checkin], class: "datepick d-inline", placeholder: "check-in" %>
+      <%= text_field_tag :checkout, params[:checkout], class: "datepick d-inline", placeholder: "check-out" %>
+      <span class="input"><%= submit_tag "Search", class: "btn btn-primary" %>
+      </span>
     <% end %>
 </div>
