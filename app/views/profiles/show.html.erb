@@ -1,10 +1,10 @@
-<div class="profile-show-container" style="height: max-content;">
-  <div class="profile-show-menu">
+<div class="profile-show-container" style="height: 1100px">
+  <div class="profile-show-menu" style="z-index: 1;">
     <div class="profile-menu">
-      <!-- <p id="btn-profile" class="dropdown-item" style="display: flex;align-items: center; text-align: start; cursor: pointer; padding: 0;"><i class="fas fa-user-alt" style="margin-right: 24px;"></i> Profile </p> -->
-      <!-- <p id="btn-boat" class="dropdown-item" style="display: flex;align-items: center; text-align: start; cursor: pointer; padding: 0;"><i class="fas fa-ship" style="margin-right: 24px;"></i>My Boats</p> -->
-      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-user-alt"></i><%= link_to "Profile", profile_path(@user), class: "dropdown-item" %></p>
-      <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-ship"></i><%= link_to "Boats", my_boats_profiles_path, class: "dropdown-item" %></p>
+      <p id="btn-profile" class="dropdown-item" style="display: flex;align-items: center; text-align: start; cursor: pointer; padding: 0;"><i class="fas fa-user-alt" style="margin-right: 24px;"></i> Profile </p>
+      <p id="btn-boat" class="dropdown-item" style="display: flex;align-items: center; text-align: start; cursor: pointer; padding: 0;"><i class="fas fa-ship" style="margin-right: 24px;"></i>My Boats</p>
+      <!-- <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-user-alt"></i><%= link_to "Profile", profile_path(@user), class: "dropdown-item" %></p> -->
+      <!-- <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-ship"></i><%= link_to "Boats", my_boats_profiles_path, class: "dropdown-item" %></p> -->
       <p style="display: flex;align-items: center; text-align: start"><i class="fas fa-inbox"></i><%= link_to "Requests", my_requests_profiles_path, class: "dropdown-item" %></p>
       <p style="display: flex;align-items: center; text-align: start"><i class="far fa-calendar-alt"></i><%= link_to "Bookings", bookings_path, class: "dropdown-item" %></p>
     </div>
@@ -36,6 +36,7 @@
   </div>
 </div>
 
+<%= render 'shared/footer' %>
 
 <!-- <p><%#= @user.name %> has <%= @user.boats.count %> boats</p>
 <%#= link_to 'See Boats', my_boats_profiles_path %>

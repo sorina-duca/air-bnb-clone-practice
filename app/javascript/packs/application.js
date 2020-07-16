@@ -47,17 +47,17 @@ document.addEventListener('turbolinks:load', () => {
 
   // initSelect2();
 
-});
 
 document.getElementById('btn-boat').addEventListener('click',
   function(){
     document.querySelector('.my-boats-modal').style.display = "flex";
-    // document.getElementById('user-info').style.display = "none";
-    // document.getElementById('profile-show-container').style.height = "100vh";
+    document.getElementById('profile-show-modal').style.display = "none";
   });
 
-document.getElementById('btn-profile-menu').addEventListener('click',
+document.getElementById('btn-profile').addEventListener('click',
   function(){
     document.querySelector('.my-boats-modal').style.display = "none";
+    document.getElementById('profile-show-modal').style.display = "block";
   });
 
+});

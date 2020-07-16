@@ -5,7 +5,8 @@
   .profile-show-menu{
     width: 15%;
     height: max-content;
-    position: fixed;
+    position: sticky;
+    top: 96px;
     .profile-menu{
       background-color: white;
       box-shadow: 8px 8px 32px rgba(0,0,0,0.1);
@@ -23,7 +24,7 @@
     background-color: white;
     width: 65%;
     flex-grow: 1;
-    margin-left: 19%;
+    margin-left: 32px;
     height: max-content;
     margin-top: 12px;
     border-radius: 16px;
