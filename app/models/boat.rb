@@ -6,11 +6,12 @@ class Boat < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   has_many :reviews, dependent: :destroy
+  # uncomment after development of controller
 
   # validates :description, presence: true, length: { minimum: 100 }
-  validates :capacity, presence: true, inclusion: { in: [2, 4, 6],
-                                                    message: "Please choose the capacity" }
+  # validates :capacity, presence: true, inclusion: { in: [2, 4, 6],
+  #                                              message: "Please choose the capacity" }
   validates :location, presence: true
-  validates :price, presence: true, numericality: { message: 'must be a number' }
-  validates :category, presence: true, inclusion: { in: ['motorboat', 'sailboat'] }
+  # validates :price, presence: true, numericality: { message: 'must be a number' }
+  # validates :category, presence: true, inclusion: { in: ['motorboat', 'sailboat'] }
 end
