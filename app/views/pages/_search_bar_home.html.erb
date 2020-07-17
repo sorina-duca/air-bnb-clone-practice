@@ -1,14 +1,18 @@
 <div class="search-bar-home">
-    <div class="input">
+    <div class="input" style="position: relative;left: 8px;">
       <%= form_tag boats_path, method: :get, local: true, id: "search-form" do %>
-      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Where do you want to sail?" %>
+      <%= text_field_tag :location, params[:location], class: "form-control border-radius-search", placeholder: "Where do you want to sail?" %>
     </div>
-    <div class="input" id='capacity'>
+    <div class="input" id='capacity' style="position: relative;left: 6px;">
       <%= text_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "How many people?" %>
     </div>
+    <div style="position: relative;left: 4px;">
       <%= hidden_field_tag :checkin, params[:checkin], class: "datepicker", placeholder: "check-in date" %>
+    </div>
+    <div style="position: relative;left: 2px;">
       <%= hidden_field_tag :checkout, params[:checkout], class: "datepicker", placeholder: "check-out date" %>
-      <div class="input"><%= submit_tag "Search", class: "btn btn-primary", id: "search-submit" %></div>
+    </div>
+    <div class="input"><%= submit_tag "Search", class: "btn btn-primary border-radius-search-btn", id: "search-submit" %></div>
     <% end %>
 </div>
 
