@@ -9,7 +9,7 @@
         <div class="grid-boats" style="display: grid;grid-template-columns: 1fr 1fr 1fr; grid-gap: 16px;">
           <% @bookings.each do |booking| %>
             <div class="card-booking">
-            <%= cl_image_tag booking.boat.photo.key, crop: :fill, class:'card-img-top', alt:'Card image cap'%>
+            <%= cl_image_tag booking.boat.photo.key, crop: :fill, class:'card-img-top', alt:'boat'%>
               <div class="card-booking-infos">
                 <div>
                   <p class="checkin-checkout"><%= booking.checkin.strftime("%d %b") %> - <%= booking.checkout.strftime("%d %b") %> </p>
