@@ -69,41 +69,45 @@
             </div>
           </li>
 
-          <li class="list-group-item d-flex justify-content-between">
+          <%= link_to '#' do %>
+          <li class="list-group-item d-flex justify-content-between list-link">
             <div class="col icon">
-              <div><i class="fas fa-print"></i>
-              </div>
+              <div><i class="fas fa-print"></i></div>
             </div>
-            <h5><%= link_to 'Print details', '#' %></h5>
+            <h5>Print details</h5>
           </li>
+          <% end %>
 
-          <li class="list-group-item d-flex justify-content-between">
+          <%= link_to '#' do %>
+          <li class="list-group-item d-flex justify-content-between list-link">
             <div class="col icon">
-              <div><i class="fas fa-receipt"></i>
-              </div>
+              <div><i class="fas fa-receipt"></i></div>
             </div>
-            <h5><%= link_to 'Get a receipt', '#' %></h5>
+            <h5>Get a receipt</h5>
           </li>
+          <% end %>
 
       <% if current_user %>
         <% unless policy(@booking.boat).edit?%>
 
-          <li class="list-group-item d-flex justify-content-between">
+          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post" do  %>
+          <li class="list-group-item d-flex justify-content-between list-link">
             <div class="col icon">
-              <div><i class="fas fa-comment-alt"></i>
-              </div>
+              <div><i class="fas fa-comment-alt"></i></div>
             </div>
-            <h5><%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post"%></h5>
-          </li>
-
-          <li class="list-group-item d-flex justify-content-between">
-            <div class="col icon">
-              <div><i class="fas fa-pen"></i>
-              </div>
-            </div>
-            <h5><%= link_to "Review this boat", new_boat_review_path(@boat)%></h5>
+            <h5>Contact Owner</h5>
           </li>
           <% end %>
+
+          <%= link_to new_boat_review_path(@boat) do  %>
+          <li class="list-group-item d-flex justify-content-between list-link">
+            <div class="col icon">
+              <div><i class="fas fa-pen"></i></div>
+            </div>
+            <h5>Review this boat</h5>
+          </li>
+          <% end %>
+        <% end %>
         <% end %>
       </ul>
 
