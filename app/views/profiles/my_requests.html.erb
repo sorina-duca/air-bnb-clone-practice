@@ -18,7 +18,7 @@
         <h2>My Requests</h2>
         <%= render 'shared/tabs' %>
         <% my_count = @user.boats.map { |boat| boat.bookings.count } %>
-        <p>You have <%= my_count.sum %> <%= my_count.sum > 1 ? 'requests' : 'request' %> </p>
+        <p>You have <%= pluralize my_count.sum, 'request' %> </p>
       </div>
     </div>
 
