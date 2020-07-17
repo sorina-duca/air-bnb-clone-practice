@@ -1,26 +1,134 @@
-<div class="container ml-3">
-  <h1><%= @booking.boat.name %></h1>
-  <% if @booking.boat.photo.attached?  %>
-    <%= cl_image_tag @booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
-  <% else %>
-    <%= cl_image_tag "add-new-boat_copy_g6t5lo", height: 300, width: 300, crop: :fill %>
-  <% end %>
+<div class="container">
+  <h1 class="text-center"><strong>Your sail with <%= @booking.boat.name %></strong></h1>
+  <div class="container p-3">
+    <div class="row row-booking-show">
+      <div class="col-md-6">
 
-  <ul>
-    <li>Your booking is: <%= @booking.status %></li>
-    <li>The boat owner is: <%= @booking.boat.user.name %></li>
-    <li>Check in: <%= @booking.checkin.strftime("%d %b") %></li>
-    <li>Check out: <%= @booking.checkout.strftime("%d %b") %></li>
-    <li><%= @booking.booking_price %> EUR</li>
-  </ul>
+      <%= cl_image_tag @booking.boat.photo.key, crop: :fill, class: "card-category" %>
 
-<% unless @booking.status == "cancelled" %>
-  <% if policy(@booking).edit? %>
-   <button type="button" class="btn btn-link"><%= link_to "Update", edit_boat_booking_path(@boat) %></button>
-  <% end %>
+      <div class="booking-status">
+      <h2 class="card-booking-status badge badge-pill badge-light" id="<%= @booking.status %>"><%= @booking.status %></h2>
+      </div>
 
-  <button type="button" class="btn btn-link"><%= link_to 'Cancel the booking', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
-<% end %>
-  <p><%= link_to 'Back to all bookings', bookings_path %></p>
+      <div class="card border border-white">
 
+        <div class="card-body">
+          <h3 class="card-title"><%= link_to @booking.boat.name, boat_path(@booking.boat) %></h3>
+          <h5 class="card-text"><%= @booking.boat.description %></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="col checkin">
+              <div class="booking-tabindex"><h6>Check-in</h6></div>
+              <div><h3><%= @booking.checkin.strftime("%a, %d %b") %></h3></div>
+            </div>
+
+            <div class="col checkout">
+              <div class="booking-tabindex"><h6>Check-out</h6></div>
+              <div><h3><%= @booking.checkout.strftime("%a, %d %b") %></h3></div>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="col overview">
+              <div class="booking-tabindex"><h6>Overview</h6></div>
+              <div>
+                <h5>Owned by <%= link_to @booking.boat.user.name, profile_path(@booking.boat.user) %></h5>
+                <h5>Max <%= @booking.boat.capacity %> people</h5>
+                <h5>€ <%= @booking.booking_price %></h5>
+              </div>
+            </div>
+              <% if @booking.boat.user.photo.attached? %>
+                <%= cl_image_tag @booking.boat.user.photo.key, class: "avatar" %>
+              <% else %>
+              <%= image_tag "avatar_default.jpg", class: "avatar"  %>
+              <% end %>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="col who">
+              <div class="booking-tabindex"><h6>Who's coming?</h6></div>
+              <div>
+                <h5><%= link_to current_user.name, profile_path(@booking.boat.user) %></h5>
+              </div>
+            </div>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+              <% else %>
+              <%= image_tag "avatar_default.jpg", class: "avatar"  %>
+              <% end %>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="col location">
+              <div class="booking-tabindex"><h6>Where?</h6></div>
+              <div>
+                <h5><%= @booking.boat.location %></h5>
+              </div>
+            </div>
+          </li>
+
+          <%= link_to '#' do %>
+          <li class="list-group-item d-flex justify-content-between list-link">
+            <div class="col icon">
+              <div><i class="fas fa-print"></i></div>
+            </div>
+            <h5>Print details</h5>
+          </li>
+          <% end %>
+
+          <%= link_to '#' do %>
+          <li class="list-group-item d-flex justify-content-between list-link">
+            <div class="col icon">
+              <div><i class="fas fa-receipt"></i></div>
+            </div>
+            <h5>Get a receipt</h5>
+          </li>
+          <% end %>
+
+      <% if current_user %>
+        <% unless policy(@booking.boat).edit?%>
+
+          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post" do  %>
+          <li class="list-group-item d-flex justify-content-between list-link">
+            <div class="col icon">
+              <div><i class="fas fa-comment-alt"></i></div>
+            </div>
+            <h5>Contact Owner</h5>
+          </li>
+          <% end %>
+
+          <%= link_to new_boat_review_path(@boat) do  %>
+          <li class="list-group-item d-flex justify-content-between list-link">
+            <div class="col icon">
+              <div><i class="fas fa-pen"></i></div>
+            </div>
+            <h5>Review this boat</h5>
+          </li>
+          <% end %>
+        <% end %>
+        <% end %>
+      </ul>
+
+      <div class="row d-flex justify-content-center">
+        <% unless @booking.status == "cancelled" %>
+          <% if policy(@booking).edit? %>
+            <button type="button" class="btn btn-light booking-show-button"><%= link_to "Update", edit_boat_booking_path(@boat) %></button>
+          <% end %>
+            <button type="button" class="btn btn-light booking-show-button"><%= link_to 'Cancel the booking', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
+        <% end %>
+        <button type="button" class="btn btn-light booking-show-button"><%= link_to 'Back to all bookings', bookings_path %></button>
+      </div>
+
+      </div>
+    </div>
+
+      <div class="col-md-6">
+        <div class="map-booking-show" id="map-index"
+            style="width: 100%; height: 1000px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'></div>
+      </div>
+    </div>
 </div>
