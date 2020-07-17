@@ -1,10 +1,15 @@
 <div class="home-container">
-  <%= render "search_bar_home" %>
-    <% if current_user.nil? %>
-      <div class="btn btn-primary">
-        <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
+  <div>
+    <%= render "search_bar_home" %>
   </div>
+  <div class="text-home-page">
+    <h1 style="width: 40%">You don't need to go far to sail in your favorite boat.</h1>
+  </div>
+  <% if current_user.nil? %>
+    <div class="btn btn-primary blue-sign-up-btn">
+      <%= link_to "Sign Up", new_user_registration_path %>
+    </div>
+  <% end %>
 </div>
   <!-- About us section: -->
 
@@ -90,7 +95,7 @@
   </div>
   <div class="reviews-big-card-content">
     <p><i class="fas fa-quote-left" style="color: #277593;"></i></p>
-    <p>When is time to travel and you love boats Boatbnb is the best option. Max and Liz where the best host you can image to have. My wife finally overcome her fear to the sea. They develop our trust and our water adventures.
+    <p>When is time to travel and you love boats <strong>Boatbnb</strong> is the best option. Max and Liz where the best host you can image to have. My wife finally overcome her fear to the sea. They develop our trust and our water adventures.
       It was a magical experience. We couldn't have ask for a better host. And a real great service of the company.</p>
     <p style="color: #277593;">Ralph Faerber</p>
     <p style="color: #3e91b2;">Berlin</p>
