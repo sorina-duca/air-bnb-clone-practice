@@ -1,0 +1,39 @@
+.black-container {
+  color: white;
+  font-weight: lighter;
+  width: 100%;
+  background-color: rgba(0,0,0,0.9);
+  height: max-content;
+  padding: 100px 7% 48px 7%;
+  .title-btn-black{
+    h2{
+      color: white;
+    }
+  }
+  .black-content {
+    width: 40%;
+    p {
+      margin-top: 12px;
+      color: white;
+    }
+  }
+  .black-cards-container {
+    margin: 48px 0;
+    .main-black-card{
+      background-color: rgba(255,255,255,0.065);
+      border-radius: 0 0 18px 18px;
+      width: 500px;
+      height: max-content;
+      margin: 12px 40px 40px 0;
+      img {
+        border-radius: 18px 18px 0 0;
+      }
+      p{
+        font-size: 16px;
+        padding: 12px 12px 20px 12px;
+        margin-top: 12px;
+        text-align: justify;
+      }
+    }
+  }
+}
