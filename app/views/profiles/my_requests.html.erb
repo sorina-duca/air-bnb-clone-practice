@@ -26,7 +26,11 @@
       <% if boat.bookings.count.positive? %>
         <% boat.bookings.each do |booking| %>
           <div class="card-product mb-3">
-            <%= cl_image_tag boat.photo.key%>
+            <% if boat.photo.attached? %>
+              <%= cl_image_tag boat.photo.key%>
+            <% else %>
+              <%= cl_image_tag "add-new-boat_copy_g6t5lo"%>
+            <% end %>
             <div class="card-product-infos">
               <h4><%= link_to boat.name, boat_path(boat) %> <%= booking.status %></h4>
               <p>From <strong><%= booking.checkin.strftime("%d %b") %></strong> to <strong><%= booking.checkout.strftime("%d %b") %></strong></p>
