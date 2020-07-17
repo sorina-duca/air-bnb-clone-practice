@@ -4,8 +4,9 @@ class ConversationsController < ApplicationController
   skip_after_action :verify_policy_scoped, only: :index
 
   def index
-    @users = User.all
-    @conversations = Conversation.all
+    recipient = Conversation.where('recipient_id': current_user.id)
+    sender = Conversation.where('sender_id': current_user.id)
+    @conversations = recipient + sender
   end
 
   def create
