@@ -1,4 +1,6 @@
 import flatpickr from 'flatpickr/dist/flatpickr.js';
+require("flatpickr/dist/themes/material_blue.css");
+
 
 const initDatepicker = () => {
   const dates = document.getElementById('disable-unavailable-dates');
