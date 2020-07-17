@@ -59,13 +59,9 @@
 .card-category {
   background-size: cover;
   background-position: center;
-<<<<<<< HEAD
   height: 300px;
   width: 100%;
   object-fit: cover;
-=======
-  height: 180px;
->>>>>>> 0f652ea... not finished yet
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +69,6 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-<<<<<<< HEAD
   border-radius: 25px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 16px;
@@ -81,8 +76,10 @@
 
 .card {
   border-radius: 25px;
-=======
-  border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
->>>>>>> 0f652ea... not finished yet
+  margin-bottom: 16px;
+}
+
+.card {
+  border-radius: 25px;
 }
