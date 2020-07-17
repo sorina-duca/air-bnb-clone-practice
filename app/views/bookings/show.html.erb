@@ -84,7 +84,28 @@
             </div>
             <h4><%= link_to 'Get a receipt', '#' %></h4>
           </li>
-        </ul>
+
+      <% if current_user %>
+        <% unless policy(@booking.boat).edit?%>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="col icon">
+              <div><i class="fas fa-comment-alt"></i>
+              </div>
+            </div>
+            <h4><%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post"%></h4>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <div class="col icon">
+              <div><i class="fas fa-pen"></i>
+              </div>
+            </div>
+            <h4><%= link_to "Review this boat", new_boat_review_path(@boat)%></h4>
+          </li>
+          <% end %>
+        <% end %>
+      </ul>
 
       <div class="row d-flex justify-content-center">
         <% unless @booking.status == "cancelled" %>
@@ -94,15 +115,6 @@
             <button type="button" class="btn btn-light booking-show-button"><%= link_to 'Cancel the booking', boat_booking_path(@booking, booking:{ status:"cancelled" }), method: :patch %></button>
         <% end %>
         <button type="button" class="btn btn-light booking-show-button"><%= link_to 'Back to all bookings', bookings_path %></button>
-      </div>
-
-      <div class="row d-flex justify-content-center">
-        <% if current_user %>
-          <% unless policy(@boat).edit?%>
-            <button type="button" class="btn btn-primary booking-show-button" id="btn-lt-white"><%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post"%></button>
-            <button type="button" class="btn btn-primary booking-show-button" id="btn-lt-white"><%= link_to "Review this boat", new_boat_review_path(@boat)%></button>
-          <% end %>
-        <% end %>
       </div>
 
       </div>
