@@ -1,0 +1,21 @@
+<div class="myboats-profile-container ml-3 pl-3 mr-3 pr-3">
+  <div class="grid-myboats">
+    <% @boats.each do |boat| %>
+      <div class="myboat-card">
+        <% if boat.photo.attached? %>
+          <%= cl_image_tag boat.photo.key, height: 210, width: 210, crop: :fill %>
+        <% else %>
+          <%= cl_image_tag 'add-new-boat_agnmrs', height: 210, width: 210, crop: :fill %>
+        <% end %>
+        <div class="mt-4 myboat-card-info d-flex justify-content-between align-items-center">
+          <h4><%= link_to boat.name, boat_path(boat) %></h4>
+          <p><%= link_to 'Info', boat_path(boat)  %></p>
+        </div>
+      </div>
+    <% end %>
+    <div class="myboat-card-new">
+      <%#= image_tag "add-new-boat", alt: "boat-new", height: 210, width: 210, crop: :fill %>
+      <h4 style="text-align: center; margin-top: 240px;"><%= link_to "Add new boat", new_boat_path, class: "btn btn-primary" %></h4>
+    </div>
+  </div>
+</div>

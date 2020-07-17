@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
   end
 
+  # post '/boats/search', to: 'boats#index', as: :boats_search
+
   resources :boats do
       resources :bookings, only: %i[new create show edit update]
       resources :reviews, only: %i[new create]

@@ -1,0 +1,16 @@
+<div id="content-index" class="ml-3 pl-3 mr-3 pr-3">
+  <div class="grid-boats-profile">
+    <% @boats.each do |boat| %>
+      <div class="card-product" id="boat-index">
+        <%= cl_image_tag boat.photo.key, height: 100, width: 100, crop: :fill %>
+        <div class="card-product-infos" id="boat-index-infos">
+          <h1><%= link_to boat.name, boat_path(boat) %></h1>
+          <p><%= boat.description %></p>
+        </div>
+        <div id="reviews-boat-index">
+          <p>⭐️</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

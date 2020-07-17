@@ -1,6 +1,11 @@
 <div class="container ml-3">
   <h1><%= @booking.boat.name %></h1>
-  <%= cl_image_tag @booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
+  <% if @booking.boat.photo.attached?  %>
+    <%= cl_image_tag @booking.boat.photo.key, height: 300, width: 300, crop: :fill %>
+  <% else %>
+    <%= cl_image_tag "add-new-boat_copy_g6t5lo", height: 300, width: 300, crop: :fill %>
+  <% end %>
+
   <ul>
     <li>Your booking is: <%= @booking.status %></li>
     <li>The boat owner is: <%= @booking.boat.user.name %></li>

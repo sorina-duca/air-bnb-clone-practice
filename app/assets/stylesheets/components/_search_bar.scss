@@ -1,4 +1,4 @@
-.search-bar {
+.search-bar-home {
   display: flex;
   justify-content: center;
   position: relative;
@@ -12,8 +12,9 @@
     }
 
   input {
-    border-radius: 12px;
+    // border-radius: 12px;
     padding: 30px;
+
   }
   .btn-primary {
     margin-left: 2px;
@@ -32,5 +33,34 @@
   }
   .datepick {
     width: 180px;
+  }
+}
+
+.search-bar-index {
+  display: flex;
+  justify-content: center;
+  .input{
+    width: 150px;
+  }
+
+  #capacity{
+      width: 150px;
+    }
+
+  input {
+    padding: 30px;
+  }
+  .btn-primary {
+    padding: 18px 36px;
+  }
+  .btn-primary a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2px;
+    padding: 18px 36px;
+    width: 100px;
+  }
+  .datepick {
+    width: 150px;
   }
 }

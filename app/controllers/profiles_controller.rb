@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :find_profile_user, only: %i[show edit update my_requests]
+  before_action :set_user, only: %i[show edit update my_requests]
 
   def my_boats
     @boats = Boat.where(user: current_user.id)
@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
   end
 
   def my_requests
+    authorize @user
   end
 
   def index
@@ -15,10 +16,15 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    authorize @user
+    @boats = Boat.where(user: current_user.id)
     @boat = Boat.find_by(user: current_user.id)
+    @user = User.find(current_user.id)
   end
 
-  def edit; end
+  def edit
+    authorize @user
+  end
 
   def update
     authorize @user
@@ -31,9 +37,8 @@ class ProfilesController < ApplicationController
 
   private
 
-  def find_profile_user
+  def set_user
     @user = User.find(current_user.id)
-    authorize @user
   end
 
   def profile_user_params

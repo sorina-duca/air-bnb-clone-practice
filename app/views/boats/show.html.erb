@@ -1,36 +1,65 @@
 <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex show-boat-title">
+        <h1><%= @boat.name %></h1>
+        <div class="show-boat-rating">
+          <p><%= render 'shared/reviews' %></p>
+        </div>
+        </div>
+        <% if @boat.photo.attached? %>
+          <%= cl_image_tag @boat.photo.key, height: 500, width: 1100, crop: :fill %>
+        <% else %>
+          <%= cl_image_tag 'no-boat-picture-01_zae6dt', height: 500, width: 1100, crop: :fill %>
+        <% end %>
 
-<div class="row">
-  <div class="col-6">
-    <div class="d-flex show-boat-title">
-      <h1><%= @boat.name %></h1>
-      <div class="show-boat-rating">
-        <p><%= render 'shared/reviews' %></p>
-      </div>
     </div>
-      <%= cl_image_tag @boat.photo.key, height: 500, width: 500, crop: :fill %>
-      <% if @boat.capacity.present? %>
-        <p><%= @boat.name %> can accomodate <%= @boat.capacity %> people. </p>
-      <% end %>
-      <p>PRICE: <%= @boat.price %> EURO / day</p>
-      <% if policy(@boat).edit? %>
-        <p><%= link_to "Update", edit_boat_path(@boat) %></p>
-      <% end %>
-      <% if policy(@boat).destroy? %>
-        <p><%= link_to 'Delete', boat_path(@boat), method: :delete %></p>
-      <% end %>
-      <%= link_to "Book this boat", new_boat_booking_path(@boat), class: "btn btn-primary" %>
-      <%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post", class: "btn btn-primary" %>
-      <%= link_to "Review this boat", new_boat_review_path(@boat), class: "btn btn-primary" %>
   </div>
-  <div class="col-6 pt-3 mt-3">
-    <div id="map-show"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'></div>
-    </div>
+  <div class="row">
+    <div class="col-8 pt-3">
+          <% if @boat.capacity.present? %>
+            <p><%= @boat.name %> can accomodate <%= @boat.capacity %> people. </p>
+          <% end %>
+          <% if @boat.description.present? %>
+           <p><%= @boat.description %></p>
+          <% end %>
+          <p>PRICE: <%= @boat.price %> EURO / day</p>
+          <div class="d-flex">
+          <% if policy(@boat).edit? %>
+            <p><%= link_to "Update", edit_boat_path(@boat), class: "btn btn-primary" %></p>
+          <% end %>
+          <% if policy(@boat).destroy? %>
+           <p><%= link_to 'Delete', boat_path(@boat), method: :delete, class: "btn btn-danger" %></p>
+          <% end %>
+          </div>
+            <% if current_user %>
+              <% unless policy(@boat).edit?%>
+                <%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post", class: "btn btn-primary" %>
+                <%= link_to "Review this boat", new_boat_review_path(@boat), class: "btn btn-primary" %>
+              <% end %>
+            <% end %>
+  </div>
+  <div class="col-4 pt-3">
+    <% unless policy(@boat).edit? %>
+      <div class="embedded_booking_form mt-3 pt-3 pb-3 pr-3 pl-3">
+        <%= render "bookings/form" %>
+      </div>
+      <% end %>
+
+  </div>
+
+
   </div>
   <h3 class="mt-5">Reviews</h3>
-</div>
+  </div>
 
 <%= render 'shared/reviews_boat_show' %>
+
+
+  <div class="container">
+      <div class="container mt-3" id="map-show"
+     style="width: 100%; height: 500px; border-radius: 10px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'>
+    </div>
+  </div>

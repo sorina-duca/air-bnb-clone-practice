@@ -1,10 +1,8 @@
 <div class="container ml-3" id='disable-unavailable-dates' data-dates='<%= @unavailable_dates.to_json %>'>
+  <h3>Book this boat!</h3>
   <%= simple_form_for [@boat, @booking] do |f| %>
-  <%= f.input :checkin, as: :string, input_html: {class: 'datepicker'} %>
-  <%= f.input :checkout, as: :string, input_html: {class: 'datepicker'} %>
-  <%= f.submit class:'btn btn-primary'%>
-<% end %>
-
-<button type="button" class="btn btn-link"><%= link_to 'Back', :back %></button>
-
+    <%= f.input :checkin, as: :string, input_html: {class: 'datepicker', type: 'hidden'} %>
+    <%= f.input :checkout, as: :string, input_html: {class: 'datepicker', type: 'hidden'} %>
+    <%= f.submit class:'btn btn-primary'%>
+  <% end %>
 </div>

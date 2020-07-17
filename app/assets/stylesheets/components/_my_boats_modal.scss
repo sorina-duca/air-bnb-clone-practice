@@ -1,0 +1,41 @@
+.my-boats-modal{
+  background-color: none;
+  position: absolute;
+  top: 0px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  .boats-modal-content{
+    padding-right: 40px;
+    margin: 108px 0px 24px 64%;
+    height: max-content;
+    background-color: white;
+    border-radius: 16px;
+    .myboats-profile-container{
+      .grid-myboats {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 24px;
+        margin: 24px;
+        width: 100%;
+        height: max-content;
+        .myboat-card {
+          width: 258px;
+          padding: 12px 24px;
+          box-shadow: 4px 4px 18px rgba(0,0,0,0.2);
+          a {
+            text-decoration: none;
+            color: rgba(0,0,0,0.8)
+          }
+        }
+        .myboat-card-new {
+          background: image-url('add-new-boat') no-repeat center;
+          background-size: 210px;
+          width: 258px;
+          padding: 12px 24px;
+          box-shadow: 4px 4px 18px rgba(0,0,0,0.2);
+        }
+      }
+    }
+  }
+}

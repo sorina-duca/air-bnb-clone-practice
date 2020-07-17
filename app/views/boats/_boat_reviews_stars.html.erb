@@ -1,14 +1,14 @@
 <% rating = [] %>
-<% if @boat.reviews.count != 0 %>
-  <% @boat.reviews.each do |review| %>
+<% if boat.reviews.count != 0 %>
+  <% boat.reviews.each do |review| %>
     <% rating << review.rating %>
   <% end %>
-  <% prom = rating.sum.to_f / @boat.reviews.count %>
+  <% prom = rating.sum.to_f / boat.reviews.count %>
   <% prom.to_i.times do  %>
     <i class="fas fa-star" style="color: #ffa931"></i>
   <% end %>
   <%= prom.round(1) %>
-  <p>(<%= @boat.reviews.count %>)</p>
+  <p>(<%= boat.reviews.count %>)</p>
 <% else %>
   <% puts "" %>
 <% end %>

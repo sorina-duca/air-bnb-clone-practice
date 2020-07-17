@@ -1,25 +1,43 @@
-<div class="container">
-  <div class="row">
-      <div>
-        <h2>My Sails</h2>
-        <%= render 'shared/tabs' %>
-      </div>
-
-    <div class="grid-boats">
-      <% @bookings.each do |booking| %>
-      <div class="card-booking">
-      <%= cl_image_tag booking.boat.photo.key, crop: :fill, class:'card-img-top', alt:'Card image cap'%>
-        <div class="card-booking-infos">
-          <div>
-            <p class="checkin-checkout"><%= booking.checkin.strftime("%d %b") %> - <%= booking.checkout.strftime("%d %b") %> </p>
-            <h2 class="booking-boat"><%= link_to booking.boat.name, boat_booking_path(booking.boat, booking) %></h2>
-            <p class="booking-price"><%= booking.booking_price %> EUR</p>
-          </div>
-          <h2 class="card-booking-status badge badge-pill badge-light" id="<%= booking.status %>"><%= booking.status %></h2>
+<% if @bookings.count != 0 %>
+  <div class="container">
+    <div class="row">
+        <div>
+          <h2>My Sails</h2>
+          <%= render 'shared/tabs' %>
         </div>
-      </div>
-      <% end %>
-    </div>
 
+        <div class="grid-boats" style="display: grid;grid-template-columns: 1fr 1fr 1fr; grid-gap: 16px;">
+          <% @bookings.each do |booking| %>
+            <div class="card-booking">
+              <% if booking.boat.photo.attached? %>
+                <%= cl_image_tag booking.boat.photo.key, crop: :fill, class:'card-img-top', alt:'Card image cap'%>
+              <% else %>
+                <%= cl_image_tag "add-new-boat_copy_g6t5lo", crop: :fill, class:'card-img-top', alt:'Card image cap'%>
+              <% end %>
+              <div class="card-booking-infos">
+                <div>
+                  <p class="checkin-checkout"><%= booking.checkin.strftime("%d %b") %> - <%= booking.checkout.strftime("%d %b") %> </p>
+                  <h2 class="booking-boat"><%= link_to booking.boat.name, boat_booking_path(booking.boat, booking) %></h2>
+                  <p class="booking-price"><%= booking.booking_price %> EUR</p>
+                </div>
+                <h2 class="card-booking-status badge badge-pill badge-light" id="<%= booking.status %>"><%= booking.status %></h2>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="titles-no-bookings">
+    <h2>My Sails</h2>
+    <%= render 'shared/tabs' %>
+    <p>When you’re ready to start planning your next trip, we’re here to help. <%= link_to 'Learn more', "#"  %></p>
+  </div>
+  <div class="bg-no-bookings">
+    <div class="no-bookings-text">
+      <div><h2>Ready to use our service?</h2></div>
+      <div><%= link_to 'Get Started', boats_path, class: "btn btn-primary"  %></div>
+    </div>
+  </div>
+<% end %>

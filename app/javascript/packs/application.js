@@ -30,22 +30,56 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDatepicker } from '../custom/datepickr';
-import { initDatepickrHome } from '../custom/datepickr';
+// import { initDatepickrHome } from '../custom/datepickr';
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+// import { initModalProfilePage } from '../components/modalpopup';
 import { initMapbox } from './mapbox';
 import { initMapIndex } from './mapbox';
 
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   initDatepicker();
+// });
 document.addEventListener('turbolinks:load', () => {
+
   initUpdateNavbarOnScroll();
   initMapbox();
+
   initDatepicker();
+
+
+
   initMapIndex();
-  initDatepickrHome();
+  // initDatepickrHome();
   // Call your functions here, e.g:
 
   // initSelect2();
 
-});
 
+
+
+  const btnBoat = document.getElementById('btn-boat')
+
+  btnBoat && btnBoat.addEventListener('click',
+  function(){
+    document.querySelector('.my-boats-modal').style.display = "flex";
+    document.getElementById('profile-show-modal').style.display = "none";
+  });
+
+  const btnProfile = document.getElementById('btn-profile')
+
+  btnProfile && btnProfile.addEventListener('click',
+  function(){
+    document.querySelector('.my-boats-modal').style.display = "none";
+    document.getElementById('profile-show-modal').style.display = "block";
+  });
+
+  const searchButton = document.getElementById('search-submit');
+  const searchForm = document.getElementById('search-form');
+
+  searchButton && searchButton.addEventListener('click', () => {
+    searchForm.submit()
+  });
+});
 

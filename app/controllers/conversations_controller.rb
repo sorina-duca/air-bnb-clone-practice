@@ -1,11 +1,12 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-  # skip_before_action :authenticate_user!, only: :index
-  # skip_after_action :verify_policy_scoped, only: :index
+  skip_before_action :authenticate_user!, only: :index
+  skip_after_action :verify_policy_scoped, only: :index
 
   def index
-    @users = policy_scope(User)
-    @conversations = policy_scope(Conversation)
+    recipient = Conversation.where('recipient_id': current_user.id)
+    sender = Conversation.where('sender_id': current_user.id)
+    @conversations = recipient + sender
   end
 
   def create
@@ -21,6 +22,7 @@ class ConversationsController < ApplicationController
   private
 
   def conversation_params
-    params.require(:conversation).permit(:sender_id, :recipient_id)
+    params.permit(:sender_id, :recipient_id)
+    # params.require(:conversation).permit(:sender_id, :recipient_id)
   end
 end
