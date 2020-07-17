@@ -23,7 +23,7 @@
       background-color: rgba(255,255,255,0.065);
       border-radius: 18px;
       width: 500px;
-      height: max-content;
+      height: 490px;
       margin: 0 12px 40px 0;
       img {
         border-radius: 18px 18px 0 0;
@@ -41,7 +41,7 @@
   background-color: rgba(255,255,255,0.065);
   height: max-content;
   border-radius: 12px;
-  width: min-content;
+  width: 30%;
   img {
     border-radius: 12px 12px 0 0;
   }
@@ -52,3 +52,21 @@
     text-align: justify;
   }
 }
+
+.large-black-card {
+  margin: 16px 0 0 14px;
+  background-color: rgba(255,255,255,0.065);
+  height: max-content;
+  border-radius: 12px;
+  width: max-content;
+  img {
+    border-radius: 12px 12px 0 0;
+  }
+  p{
+    font-size: 14px;
+    padding: 6px 6px 6px 6px;
+    margin-top: 6px;
+    text-align: justify;
+  }
+}
+
