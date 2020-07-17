@@ -1,6 +1,5 @@
 .search-bar-home {
   display: flex;
-  margin-left: 10%;
   position: relative;
   bottom: 200px;
   .input{
@@ -67,6 +66,7 @@
 
 .border-radius-search-btn {
   border-radius: 0 8px 8px 0;
+  width: max-content;
 }
 .border-radius-search {
    border-radius: 8px 0 0 8px;
