@@ -13,6 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .about-us-form {
@@ -30,4 +31,28 @@ body {
   // flex-grow: 1;
   // // grid-gap: 16px;
   padding: 16px;
+}
+
+.blue-sign-up-btn{
+  width: 200px;
+  margin-left: 71%;
+  margin-top: 5%;
+  padding: 18px 30px;
+  border-radius: 12px;
+  a{
+    color: white;
+  }
+}
+
+.text-home-page {
+  h1 {
+    width: 40%;
+    text-align: end;
+    position: relative;
+    right: -63%;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#2636AA, #046CE7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

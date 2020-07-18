@@ -1,0 +1,25 @@
+.user-favorite-container {
+  margin: 0px 10% 48px 10%;
+  h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+  .class-favorite-container {
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .user-favorite-card {
+      h2 {
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 12px;
+      }
+      width: 30%;
+      text-align: center;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 2px 2px 18px rgba(0,0,0,0.1)
+    }
+  }
+}

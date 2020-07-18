@@ -29,10 +29,12 @@
     margin-top: 12px;
     border-radius: 16px;
     .profile-cover-picture{
-      background: image-url('profile-cover-picture') no-repeat center;
-      height: 160px;
-      width: 1000px;
-      border-radius: 12px;
+      img {
+        height: 160px;
+        width: 97%;
+        border-radius: 12px;
+        // padding-right: 3%
+      }
     }
     .profile-avatar{
       display: flex;

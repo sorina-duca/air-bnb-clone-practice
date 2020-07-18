@@ -1,13 +1,107 @@
 <div class="home-container">
-  <%= render "search_bar_home" %>
-    <% if current_user.nil? %>
-      <div class="btn btn-primary">
-        <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
+  <div>
+    <%= render "search_bar_home" %>
   </div>
+  <div class="text-home-page">
+    <h1 style="width: 60%">Ahoy! Adventure. Find your favorite boat.</h1>
+  </div>
+  <% if current_user.nil? %>
+    <div class="btn btn-primary blue-sign-up-btn">
+      <%= link_to "Sign Up", new_user_registration_path %>
+    </div>
+  <% end %>
 </div>
   <!-- About us section: -->
-<div class="about-us-grid">
+
+<div class="user-favorite-container">
+  <h2 style="font-weight: bold">User's Favorites</h2>
+  <div class="class-favorite-container">
+    <div class="user-favorite-card">
+      <div>
+        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.32.08_hlyngr', heigh: 250, width: 250 %>
+      </div>
+      <div>
+        <h2>Beth</h2>
+      </div>
+      <div>
+        <p>The daycruiser 640 can carry up to 6 people and offers plenty of space for your boat trip in Berlin. </p>
+      </div>
+    </div>
+    <div class="user-favorite-card">
+      <div>
+        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.30.36_kejuok', heigh: 250, width: 250 %>
+      </div>
+      <div>
+        <h2>Summer</h2>
+      </div>
+      <div>
+        <p>Each raft is equipped with its own barbecue and cabin. The latter allowing you a comfortable tour</p>
+      </div>
+    </div>
+    <div class="user-favorite-card">
+      <div>
+        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.35.57_kit2qt', heigh: 250, width: 250 %>
+      </div>
+      <div>
+        <h2>Jessica</h2>
+      </div>
+      <div>
+        <p>Pack your swimsuit and seven of your best friends together and jump on the raft for an unique tour of Berlin. </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="black-container">
+  <div class="d-flex justify-content-between title-btn-black">
+    <h2>Experience with top sailors</h2>
+    <%= link_to 'Explore', '#', class: "btn btn-outline-light"  %>
+  </div>
+  <div class="black-content">
+    <p>Book a boat and learn how to sail with the best local captains. Listen about their experiences
+    sailing around the world.</p>
+  </div>
+  <div class="black-cards-container d-flex">
+    <div class="main-black-card">
+      <%= cl_image_tag "3583747_17113002580060046821_b956oc", heigh: 500, width: 500, crop: :fill %>
+      <p>More than 1,000 water sports athletes have already acquired driver's licenses for sailing or/and motor boats in this water sports school!</p>
+    </div>
+    <div class="right-black-cards" style="width: 100%">
+      <div class="d-flex justify-content-around">
+        <div class="small-black-card">
+          <%= cl_image_tag "Screen_Shot_2020-07-17_at_21.59.36_kspmzp", :height=>200, :crop=>"scale" %>
+          <p>Learn how to sail with the bests sailors.</p>
+        </div>
+        <div class="small-black-card">
+          <%= cl_image_tag "Screen_Shot_2020-07-17_at_21.58.33_ruda7t", :height=>200, :crop=>"scale" %>
+          <p>Experience a boat life style while enjoying great holidays.</p>
+        </div>
+        <div class="small-black-card">
+          <%= cl_image_tag "Screen_Shot_2020-07-17_at_22.51.19_gqgqh5", :width=>218, :crop=>"scale" %>
+          <p>Have a great time while diving with sharks.</p>
+        </div>
+      </div>
+      <div class="large-black-card">
+        <%= cl_image_tag "Screen_Shot_2020-07-17_at_22.56.44_hbl1zk", :width=>700, :crop=>"scale"%>
+        <p>With us you will have an unforgettable experience guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="reviews-big-card d-flex">
+  <div class="reviews-big-card-photo">
+    <%= cl_image_tag 'Screen_Shot_2020-07-17_at_23.05.48_m3chqe', heigh: 250, width: 250 %>
+  </div>
+  <div class="reviews-big-card-content">
+    <p><i class="fas fa-quote-left" style="color: #277593;"></i></p>
+    <p>When is time to travel and you love boats <strong>Boatbnb</strong> is the best option. Max and Liz where the best host you can image to have. My wife finally overcome her fear to the sea. They develop our trust and our water adventures.
+      It was a magical experience. We couldn't have ask for a better host. And a real great service of the company.</p>
+    <p style="color: #277593;">Ralph Faerber</p>
+    <p style="color: #3e91b2;">Berlin</p>
+  </div>
+</div>
+<!-- <div class="about-us-grid">
   <div class="about-us-form">
     <div>
       <h2>Rent boats in Berlin</h2>
@@ -34,7 +128,7 @@
       <p>Make money on your boat when not using it</p>
   </div>
   </div>
-</div>
+</div> -->
 
 
 
