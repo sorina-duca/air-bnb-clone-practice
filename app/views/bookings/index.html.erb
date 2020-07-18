@@ -8,6 +8,7 @@
 
         <div class="grid-boats" style="display: grid;grid-template-columns: 1fr 1fr 1fr; grid-gap: 16px;">
           <% @bookings.each do |booking| %>
+          <%= link_to (boat_booking_path(booking.boat, booking)) do  %>
             <div class="card-booking">
               <% if booking.boat.photo.attached? %>
                 <%= cl_image_tag booking.boat.photo.key, crop: :fill, class:'card-img-top', alt:'Card image cap'%>
@@ -17,12 +18,13 @@
               <div class="card-booking-infos">
                 <div>
                   <p class="checkin-checkout"><%= booking.checkin.strftime("%d %b") %> - <%= booking.checkout.strftime("%d %b") %> </p>
-                  <h2 class="booking-boat"><%= link_to booking.boat.name, boat_booking_path(booking.boat, booking) %></h2>
+                  <h2 class="booking-boat"><%= booking.boat.name %></h2>
                   <p class="booking-price"><%= booking.booking_price %> EUR</p>
                 </div>
                 <h2 class="card-booking-status badge badge-pill badge-light" id="<%= booking.status %>"><%= booking.status %></h2>
               </div>
             </div>
+          <% end %>
           <% end %>
         </div>
 
