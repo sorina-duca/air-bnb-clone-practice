@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row row-boat">
     <div class="col-12">
       <div class="d-flex show-boat-title">
         <h1><%= @boat.name %></h1>
@@ -15,7 +15,7 @@
 
     </div>
   </div>
-  <div class="row">
+  <div class="row row-boat">
     <div class="col-8 pt-3">
           <% if @boat.capacity.present? %>
             <p><%= @boat.name %> can accomodate <%= @boat.capacity %> people. </p>

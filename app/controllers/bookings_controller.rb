@@ -34,6 +34,11 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @markers =
+      {
+        lat: @booking.boat.latitude,
+        lng: @booking.boat.longitude
+      }
     authorize @booking
   end
 

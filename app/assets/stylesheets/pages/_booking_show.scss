@@ -1,0 +1,48 @@
+.booking-tabindex {
+  color: #bababa;
+}
+
+.checkin {
+  border-right: 0.5px solid #bababa;
+}
+
+.list-link {
+  border-right-style:none;
+  border-left-style:none;
+  border-top-style:none;
+  border-bottom: 0.5px solid #bababa;
+}
+
+.list-group-item >img {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  margin-top: 1em;
+}
+
+.booking-status {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 200%;
+}
+
+.row-booking-show a {
+  color: #686868;
+}
+
+.row-booking-show a:hover {
+  color: black;
+}
+
+.map-booking-show {
+  position: sticky;
+  top: 0;
+}
+
+.list-group-item h2 {
+  font-family: Montoserat;
+}
+
+.icon i {
+  font-size: 24px;
+}
