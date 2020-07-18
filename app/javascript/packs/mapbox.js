@@ -9,6 +9,7 @@ const fitMapToMarkersInShow = (map, markers) => {
 };
 
 const fitMapToMarkersInIndex = (map, markers) => {
+  console.log("functio called")
   const boundsIndex = new mapboxgl.LngLatBounds();
   markers.forEach(marker => boundsIndex.extend([ marker.lng, marker.lat ]));
   map.fitBounds(boundsIndex, { padding: 70, maxZoom: 15, duration: 1500 });
@@ -21,7 +22,8 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map-show',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v10',
+      zoom: 8
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);
@@ -40,7 +42,8 @@ const initMapIndex = () => {
     mapboxgl.accessToken = mapIndex.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map-index',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v10',
+      zoom: 8
     });
 
   const markers = JSON.parse(mapIndex.dataset.markers);
