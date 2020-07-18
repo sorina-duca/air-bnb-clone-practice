@@ -7,6 +7,10 @@
   width: 344px;
 }
 
+a .card-booking{
+  color: black;
+}
+
 #pending {
   background-color: #F8cd60;
 }
@@ -17,12 +21,6 @@
 
 #approved {
   background-color:#98DE80;
-}
-
-.card-booking > img {
-  height: 228px;
-  width: 100%;
-  object-fit: cover;
 }
 
 .card-booking h2 {
@@ -37,8 +35,10 @@
   margin: 0;
 }
 
-.card-booking a {
-  color: black;
+.card-booking > img {
+  height: 228px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .card-booking .card-booking-infos {
@@ -78,8 +78,4 @@
   border-radius: 25px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 16px;
-}
-
-.card {
-  border-radius: 25px;
 }
