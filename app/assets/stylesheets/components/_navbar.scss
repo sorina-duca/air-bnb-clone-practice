@@ -5,6 +5,8 @@
   transition: 0.5s background-color ease;
   position: sticky;
   top: 0;
+  width: 100%;
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.1);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,5 +22,14 @@
 }
 
 .slogan {
-  color: #3e91b2;
+  h1 {
+    margin: 0;
+    width: max-content;
+    text-align: end;
+    position: relative;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#2636AA, #046CE7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

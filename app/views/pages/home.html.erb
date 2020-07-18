@@ -3,7 +3,7 @@
     <%= render "search_bar_home" %>
   </div>
   <div class="text-home-page">
-    <h1 style="width: 60%">Ahoy! Adventure. Find your favorite boat.</h1>
+    <h1 style="width: 60%">Rent boats in Berlin</h1>
   </div>
   <% if current_user.nil? %>
     <div class="btn btn-primary blue-sign-up-btn">
@@ -18,7 +18,7 @@
   <div class="class-favorite-container">
     <div class="user-favorite-card">
       <div>
-        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.32.08_hlyngr', heigh: 250, width: 250 %>
+        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.32.08_hlyngr' %>
       </div>
       <div>
         <h2>Beth</h2>
@@ -29,7 +29,7 @@
     </div>
     <div class="user-favorite-card">
       <div>
-        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.30.36_kejuok', heigh: 250, width: 250 %>
+        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.30.36_kejuok' %>
       </div>
       <div>
         <h2>Summer</h2>
@@ -40,7 +40,7 @@
     </div>
     <div class="user-favorite-card">
       <div>
-        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.35.57_kit2qt', heigh: 250, width: 250 %>
+        <%= cl_image_tag 'Screen_Shot_2020-07-17_at_21.35.57_kit2qt' %>
       </div>
       <div>
         <h2>Jessica</h2>
@@ -61,13 +61,13 @@
     <p>Book a boat and learn how to sail with the best local captains. Listen about their experiences
     sailing around the world.</p>
   </div>
-  <div class="black-cards-container d-flex">
+  <div class="black-cards-container d-flex " style="width: 100%;">
     <div class="main-black-card">
       <%= cl_image_tag "3583747_17113002580060046821_b956oc", heigh: 500, width: 500, crop: :fill %>
       <p>More than 1,000 water sports athletes have already acquired driver's licenses for sailing or/and motor boats in this water sports school!</p>
     </div>
     <div class="right-black-cards" style="width: 100%">
-      <div class="d-flex justify-content-around">
+      <div class="d-flex justify-content-around small-black-cards-container">
         <div class="small-black-card">
           <%= cl_image_tag "Screen_Shot_2020-07-17_at_21.59.36_kspmzp", :height=>200, :crop=>"scale" %>
           <p>Learn how to sail with the bests sailors.</p>

@@ -1,6 +1,3 @@
-
-
-
 <div class="container text-center">
   <h1>Sail away with one of the boats</h1>
   <div class="container">
@@ -42,13 +39,12 @@
           <!-- END -->
 
         </div>
-
+        <h5>owned by <%= boat.user.name %></h5>
         <p><%= boat.description %></p>
       </div>
       <div id="reviews-boat-index">
 
 <!-- REVIEW STARS -->
-
 
 <!-- END -->
       </div>
@@ -63,8 +59,5 @@
      data-mapbox-api-key='<%= ENV['MAPBOX_API_KEY'] %>'></div>
   </div>
 </div>
-
-
-
 
 <!-- scss currently in _card_product component -->
