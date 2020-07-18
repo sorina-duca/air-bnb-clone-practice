@@ -1,15 +1,19 @@
 
-<div class="search-bar-index mt-3">
+<div class="search-bar-index mt-3 d-flex justify-content-center" >
     <%= form_tag boats_path, method: :get do %>
-      <span class="input">
-        <%= text_field_tag :location, params[:location], class: "form-control d-inline w-auto", placeholder: "Location" %>
+      <span class="input" style="position: relative;left: 15px;">
+        <%= text_field_tag :location, params[:location], class: "form-control d-inline w-auto border-radius-search", placeholder: "Location" %>
       </span>
-      <span class="input" id='capacity'>
+      <span class="input" id='capacity' style="position: relative;left: 10px;">
         <%= text_field_tag :capacity, params[:capacity], class: "form-control d-inline", placeholder: "People?" %>
-      </span>
+      </span >
+      <span style="position: relative;left: 5px;">
         <%= hidden_field_tag :checkin, params[:checkin], class: "datepicker d-inline", placeholder: "check-in" %>
-      <%= hidden_field_tag :checkout, params[:checkout], class: "datepicker d-inline", placeholder: "check-out" %>
-      <span class="input"><%= submit_tag "Search", class: "btn btn-primary" %>
+      </span>
+      <span>
+        <%= hidden_field_tag :checkout, params[:checkout], class: "datepicker d-inline", placeholder: "check-out" %>
+      </span>
+      <span class="input" style="position: relative;left: -5px; bottom: 1px;"><%= submit_tag "Search", class: "btn btn-primary border-radius-search-btn" %>
       </span>
     <% end %>
 </div>
