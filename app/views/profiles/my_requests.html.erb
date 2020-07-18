@@ -31,12 +31,16 @@
             <% else %>
               <%= cl_image_tag "add-new-boat_copy_g6t5lo"%>
             <% end %>
-            <div class="card-product-infos">
-              <h4><%= link_to boat.name, boat_path(boat) %> <%= booking.status %></h4>
-              <p>From <strong><%= booking.checkin.strftime("%d %b") %></strong> to <strong><%= booking.checkout.strftime("%d %b") %></strong></p>
-              <p>by <%= User.find_by(id: booking.user_id).name %></p>
-              <button type="button" class="btn btn-primary"><%= link_to 'Accept', boat_booking_path(booking.boat, booking, booking:{ status:"approved" }), method: :patch %></button>
-              <button type="button" class="btn btn-secondary"><%= link_to 'Reject', boat_booking_path(booking.boat, booking, booking:{ status:"rejected" }), method: :patch %></button>
+            <div class="card-product-infos d-flex" style="justify-content: space-between;flex-grow: 1;">
+              <div>
+                <h4><%= link_to boat.name, boat_path(boat) %> <%= booking.status %></h4>
+                <p>From <strong><%= booking.checkin.strftime("%d %b") %></strong> to <strong><%= booking.checkout.strftime("%d %b") %></strong></p>
+                <p>by <%= User.find_by(id: booking.user_id).name %></p>
+              </div>
+              <div class="d-flex flex-direction-column" style="flex-direction: column;justify-content: space-between;">
+                <button type="button" class="btn btn-primary"><%= link_to 'Accept', boat_booking_path(booking.boat, booking, booking:{ status:"approved" }), method: :patch %></button>
+                <button type="button" class="btn btn-secondary"><%= link_to 'Reject', boat_booking_path(booking.boat, booking, booking:{ status:"rejected" }), method: :patch %></button>
+              </div>
             </div>
           </div>
         <% end %>
