@@ -23,6 +23,7 @@
 
 .slogan {
   h1 {
+    font-size: 36px;
     margin: 0;
     width: max-content;
     text-align: end;
@@ -32,4 +33,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+}
+
+.heigth-logo{
+  height: min-content;
 }
