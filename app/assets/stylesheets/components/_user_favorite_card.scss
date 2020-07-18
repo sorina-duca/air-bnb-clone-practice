@@ -15,6 +15,12 @@
         font-size: 18px;
         margin-top: 12px;
       }
+      p {
+        margin: 12px;
+        margin-top: 0px;
+        color: #9f9f9f;
+      }
+      border-radius: 20px;
       width: 30%;
       text-align: center;
       padding: 0px;
@@ -22,6 +28,7 @@
       box-shadow: 2px 2px 18px rgba(0,0,0,0.1);
       img {
         width: 100%;
+        border-radius: 20px 20px 0 0;
       }
     }
   }
