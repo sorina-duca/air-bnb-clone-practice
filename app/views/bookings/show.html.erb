@@ -1,5 +1,7 @@
-<div class="container p-3">
-   <div class="row row-booking-show">
+<div class="container">
+  <h1 class="text-center"><strong>Your sail with <%= @booking.boat.name %></strong></h1>
+  <div class="container p-3">
+    <div class="row row-booking-show">
       <div class="col-md-6">
 
       <%= cl_image_tag @booking.boat.photo.key, crop: :fill, class: "card-category" %>
@@ -32,8 +34,9 @@
             <div class="col overview">
               <div class="booking-tabindex"><h6>Overview</h6></div>
               <div>
-                <h4>Owned by <%= link_to @booking.boat.user.name, profile_path(@booking.boat.user) %></h4>
-                <h4>€ <%= @booking.booking_price %></h4>
+                <h5>Owned by <%= link_to @booking.boat.user.name, profile_path(@booking.boat.user) %></h5>
+                <h5>Max <%= @booking.boat.capacity %> people</h5>
+                <h5>€ <%= @booking.booking_price %></h5>
               </div>
             </div>
               <% if @booking.boat.user.photo.attached? %>
@@ -47,7 +50,7 @@
             <div class="col who">
               <div class="booking-tabindex"><h6>Who's coming?</h6></div>
               <div>
-                <h4><%= link_to current_user.name, profile_path(@booking.boat.user) %></h4>
+                <h5><%= link_to current_user.name, profile_path(@booking.boat.user) %></h5>
               </div>
             </div>
               <% if current_user.photo.attached? %>
@@ -61,46 +64,50 @@
             <div class="col location">
               <div class="booking-tabindex"><h6>Where?</h6></div>
               <div>
-                <h4><%= @booking.boat.location %></h4>
+                <h5><%= @booking.boat.location %></h5>
               </div>
             </div>
           </li>
 
-          <li class="list-group-item d-flex justify-content-between">
+          <%= link_to '#' do %>
+          <li class="list-group-item d-flex justify-content-between list-link">
             <div class="col icon">
-              <div><i class="fas fa-print"></i>
-              </div>
+              <div><i class="fas fa-print"></i></div>
             </div>
-            <h4><%= link_to 'Print details', '#' %></h4>
+            <h5>Print details</h5>
           </li>
+          <% end %>
 
-          <li class="list-group-item d-flex justify-content-between">
+          <%= link_to '#' do %>
+          <li class="list-group-item d-flex justify-content-between list-link">
             <div class="col icon">
-              <div><i class="fas fa-receipt"></i>
-              </div>
+              <div><i class="fas fa-receipt"></i></div>
             </div>
-            <h4><%= link_to 'Get a receipt', '#' %></h4>
+            <h5>Get a receipt</h5>
           </li>
+          <% end %>
 
       <% if current_user %>
         <% unless policy(@booking.boat).edit?%>
 
-          <li class="list-group-item d-flex justify-content-between">
+          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post" do  %>
+          <li class="list-group-item d-flex justify-content-between list-link">
             <div class="col icon">
-              <div><i class="fas fa-comment-alt"></i>
-              </div>
+              <div><i class="fas fa-comment-alt"></i></div>
             </div>
-            <h4><%= link_to "Contact Owner", conversations_path(sender_id: current_user.id, recipient_id: @boat.user.id), method: "post"%></h4>
-          </li>
-
-          <li class="list-group-item d-flex justify-content-between">
-            <div class="col icon">
-              <div><i class="fas fa-pen"></i>
-              </div>
-            </div>
-            <h4><%= link_to "Review this boat", new_boat_review_path(@boat)%></h4>
+            <h5>Contact Owner</h5>
           </li>
           <% end %>
+
+          <%= link_to new_boat_review_path(@boat) do  %>
+          <li class="list-group-item d-flex justify-content-between list-link">
+            <div class="col icon">
+              <div><i class="fas fa-pen"></i></div>
+            </div>
+            <h5>Review this boat</h5>
+          </li>
+          <% end %>
+        <% end %>
         <% end %>
       </ul>
 
