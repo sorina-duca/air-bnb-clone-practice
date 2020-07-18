@@ -1,5 +1,6 @@
 <div class="container">
   <h1 class="text-center"><strong>Your sail with <%= @booking.boat.name %></strong></h1>
+
   <div class="container p-3">
     <div class="row row-booking-show">
       <div class="col-md-6">
@@ -37,7 +38,7 @@
               <div class="booking-tabindex"><h6>Overview</h6></div>
               <div>
                 <h5>Owned by <%= link_to @booking.boat.user.name, profile_path(@booking.boat.user) %></h5>
-                <h5>Max <%= @booking.boat.capacity %> people</h5>
+                <h5>max <%= @booking.boat.capacity %> people</h5>
                 <h5>€ <%= @booking.booking_price %></h5>
               </div>
             </div>
@@ -52,13 +53,13 @@
             <div class="col who">
               <div class="booking-tabindex"><h6>Who's coming?</h6></div>
               <div>
-                <h5><%= link_to current_user.name, profile_path(@booking.boat.user) %></h5>
+                <h5><%= link_to @booking.user.name, profile_path(@booking.user) %></h5>
               </div>
             </div>
-              <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+              <% if @booking.user.photo.attached? %>
+                <%= cl_image_tag @booking.user.photo.key, class: "avatar" %>
               <% else %>
-                <%= image_tag "avatar_default.jpg", class: "avatar"  %>
+                <%= cl_image_tag "avatar_default.jpg", class: "avatar"  %>
               <% end %>
           </li>
 
@@ -66,7 +67,7 @@
             <div class="col location">
               <div class="booking-tabindex"><h6>Where?</h6></div>
               <div>
-                <h5><%= @booking.boat.location %></h5>
+                <h4><%= @booking.boat.location %></h4>
               </div>
             </div>
           </li>
