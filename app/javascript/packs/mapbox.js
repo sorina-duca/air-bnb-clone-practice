@@ -9,7 +9,6 @@ const fitMapToMarkersInShow = (map, markers) => {
 };
 
 const fitMapToMarkersInIndex = (map, markers) => {
-  console.log("functio called")
   const boundsIndex = new mapboxgl.LngLatBounds();
   markers.forEach(marker => boundsIndex.extend([ marker.lng, marker.lat ]));
   map.fitBounds(boundsIndex, { padding: 70, maxZoom: 15, duration: 1500 });
@@ -60,5 +59,26 @@ const initMapIndex = () => {
   }
 };
 
+const initMapBooking = () => {
+  const mapElement = document.getElementById('booking-map');
+
+  if (mapElement) { // only build a map if there's a div#map-show to inject into
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    const map = new mapboxgl.Map({
+      container: 'booking-map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      zoom: 8
+    });
+
+    const markers = JSON.parse(mapElement.dataset.markers);
+    new mapboxgl.Marker()
+      .setLngLat([ markers.lng, markers.lat ])
+      .addTo(map);
+
+    fitMapToMarkersInShow(map, markers);
+  }
+};
+
 export { initMapbox };
-export { initMapIndex } ;
+export { initMapIndex };
+export { initMapBooking };

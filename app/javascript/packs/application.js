@@ -36,6 +36,7 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 // import { initModalProfilePage } from '../components/modalpopup';
 import { initMapbox } from './mapbox';
 import { initMapIndex } from './mapbox';
+import { initMapBooking } from './mapbox';
 
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -45,12 +46,9 @@ document.addEventListener('turbolinks:load', () => {
 
   initUpdateNavbarOnScroll();
   initMapbox();
-
   initDatepicker();
-
-
-
   initMapIndex();
+  initMapBooking();
   // initDatepickrHome();
   // Call your functions here, e.g:
 
