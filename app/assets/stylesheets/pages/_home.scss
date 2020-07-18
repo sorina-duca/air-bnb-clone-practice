@@ -14,3 +14,20 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.about-us-form {
+      box-shadow: 4px 4px 20px rgba(0,0,0,0.12);
+      padding: 0px 24px;
+      padding-bottom: 24px;
+      padding-top: 24px;
+      margin: 10px;
+    }
+
+.about-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // position: relative;
+  // flex-grow: 1;
+  // // grid-gap: 16px;
+  padding: 16px;
+}
