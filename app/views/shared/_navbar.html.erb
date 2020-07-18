@@ -37,7 +37,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Bookings", bookings_path , class: "dropdown-item" %>
             <% unless current_user.boats.nil? %>
-              <%= link_to "My requests", my_requests_profiles_path(current_user), class: "dropdown-item"  %>
+              <%= link_to "My Requests", my_requests_profiles_path(current_user), class: "dropdown-item"  %>
             <% end %>
             <% if policy(User).show? %>
               <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item" %>
