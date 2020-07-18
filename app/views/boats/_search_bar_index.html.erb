@@ -1,6 +1,6 @@
 
 <div class="search-bar-index mt-3">
-    <%= form_tag boats_path, method: :get do %>
+    <%= form_tag boats_path, method: :get  do %>
       <span class="input">
         <%= text_field_tag :location, params[:location], class: "form-control d-inline w-auto", placeholder: "Location" %>
       </span>
