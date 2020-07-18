@@ -3,9 +3,11 @@
   <div class="container p-3">
     <div class="row row-booking-show">
       <div class="col-md-6">
-
-      <%= cl_image_tag @booking.boat.photo.key, crop: :fill, class: "card-category" %>
-
+      <% if @booking.boat.photo.attached? %>
+        <%= cl_image_tag @booking.boat.photo.key, class: "card-category" %>
+      <% else %>
+        <%= cl_image_tag "add-new-boat_copy_g6t5lo"  %>
+      <% end %>
       <div class="booking-status">
       <h2 class="card-booking-status badge badge-pill badge-light" id="<%= @booking.status %>"><%= @booking.status %></h2>
       </div>
@@ -42,7 +44,7 @@
               <% if @booking.boat.user.photo.attached? %>
                 <%= cl_image_tag @booking.boat.user.photo.key, class: "avatar" %>
               <% else %>
-              <%= image_tag "avatar_default.jpg", class: "avatar"  %>
+                <%= cl_image_tag "add-new-boat_copy_g6t5lo", class: "avatar"  %>
               <% end %>
           </li>
 
@@ -56,7 +58,7 @@
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar" %>
               <% else %>
-              <%= image_tag "avatar_default.jpg", class: "avatar"  %>
+                <%= image_tag "avatar_default.jpg", class: "avatar"  %>
               <% end %>
           </li>
 
