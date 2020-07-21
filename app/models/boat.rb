@@ -15,3 +15,5 @@ class Boat < ApplicationRecord
   # validates :price, presence: true, numericality: { message: 'must be a number' }
   # validates :category, presence: true, inclusion: { in: ['motorboat', 'sailboat'] }
 end
+
+# test
