@@ -12,5 +12,4 @@ class UserPolicy < ApplicationPolicy
   def my_requests?
     true
   end
-
 end

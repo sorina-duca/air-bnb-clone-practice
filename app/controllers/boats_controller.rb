@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
-  before_action :find_boat, only: [ :edit, :update, :show, :destroy ]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_boat, only: %i[edit update show destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @location = params[:location]
@@ -11,7 +11,9 @@ class BoatsController < ApplicationController
     boats_query = policy_scope(Boat.geocoded).order(name: :asc)
     boats_query = boats_query.where('location ILIKE?', "%#{@location}%") if params[:location].present?
     boats_query = boats_query.where(capacity: @capacity) if params[:capacity].present?
-    boats_query = boats_query.select { |boat| boat_available?(@check_in, @check_out, boat) } if params[:checkin].present? && params[:checkout].present?
+    if params[:checkin].present? && params[:checkout].present?
+      boats_query = boats_query.select { |boat| boat_available?(@check_in, @check_out, boat) }
+    end
     @boats = boats_query
 
     @markers = @boats.map do |boat|

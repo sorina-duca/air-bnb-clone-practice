@@ -14,8 +14,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
-
-private
+  private
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
@@ -23,9 +22,9 @@ private
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :bio, :photo])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name bio photo])
 
-      # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :bio, :photo])
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name bio photo])
   end
 end

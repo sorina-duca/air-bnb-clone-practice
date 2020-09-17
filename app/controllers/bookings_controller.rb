@@ -1,9 +1,8 @@
 class BookingsController < ApplicationController
-
-  before_action :find_booking, only: [:show, :edit, :update]
-  before_action :find_boat, only: [:new, :create, :show, :edit]
-  before_action :authenticate_user!, only: [:new, :create]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :find_booking, only: %i[show edit update]
+  before_action :find_boat, only: %i[new create show edit]
+  before_action :authenticate_user!, only: %i[new create]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @bookings = policy_scope(Booking).order(checkin: :asc)
@@ -27,7 +26,7 @@ class BookingsController < ApplicationController
     @booking.booking_price = @boat.price * (@booking.checkout - @booking.checkin).to_i / (24 * 60 * 60)
     authorize @booking
     if @booking.save
-      redirect_to boat_booking_path(@boat,@booking)
+      redirect_to boat_booking_path(@boat, @booking)
     else
       render :new
     end
@@ -65,5 +64,4 @@ class BookingsController < ApplicationController
   def find_boat
     @boat = Boat.find(params[:boat_id])
   end
-
 end

@@ -18,7 +18,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user || User.find_by(id: @booking.boat.user_id)  == user
+    record.user || User.find_by(id: @booking.boat.user_id) == user
   end
-
 end
