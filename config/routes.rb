@@ -25,4 +25,10 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
+    namespace :api, defaults: { format: :json } do
+      namespace :v1 do
+        resources :boats, only: [ :index ]
+    end
+  end
 end

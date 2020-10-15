@@ -10,7 +10,7 @@
     <% @boats.each do |boat| %>
       <!-- <div> -->
     <div class="card-product" id="boat-index">
-      <%= photo boat %>
+      <%= photo boat, 500, 1100 %>
       <div class="card-product-infos" id="boat-index-infos">
         <div class="d-flex justify-content-between">
           <h1><%= link_to boat.name, boat_path(boat) %></h1>

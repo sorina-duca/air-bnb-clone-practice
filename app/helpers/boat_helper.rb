@@ -1,9 +1,9 @@
 module BoatHelper
-  def photo(boat)
+  def photo(boat, height, width)
     if boat.photo.attached?
-      cl_image_tag boat.photo.key, height: 500, width: 1100, crop: :fill
+      cl_image_tag boat.photo.key, height: height, width: width, crop: :fill
     else
-      cl_image_tag 'no-boat-picture-01_zae6dt', height: 500, width: 1100, crop: :fill
+      cl_image_tag 'no-boat-picture-01_zae6dt', height: height, width: width, crop: :fill
     end
   end
 
